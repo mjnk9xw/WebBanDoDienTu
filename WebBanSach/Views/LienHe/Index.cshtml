@@ -1,0 +1,52 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Liên hệ";
+}
+
+<!-- start main -->
+<div class="main_bg">
+    <div class="wrap">
+        <div class="main">
+            <div class="contact">
+                <div class="contact_info">
+                    <h2>Địa chỉ liên lạc</h2>
+                    <div class="map">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7447.211358269735!2d105.78081567265295!3d21.048458112755917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAyJzU0LjIiTiAxMDXCsDQ3JzEwLjAiRQ!5e0!3m2!1svi!2s!4v1556061092548!5m2!1svi!2s" width="1200" height="400" frameborder="0" style="border:0" allowfullscreen></iframe>
+                        <br><small>
+                            <a href="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7447.211358269735!2d105.78081567265295!3d21.048458112755917!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjHCsDAyJzU0LjIiTiAxMDXCsDQ3JzEwLjAiRQ!5e0!3m2!1svi!2s!4v1556061092548!5m2!1svi!2s"
+                            style="color:#777777;text-align:left;font-size:13px;font-family: 'Source Sans Pro', sans-serif;">
+                            Cửa hàng sách tại học viện kỹ thuật quân sự.
+                            </a>
+                        </small>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <h2>Liên hệ với chúng tôi</h2>
+                    <form method="post" action="LienHe" class="form">
+                        <div class="form-group">
+                            <span><label>Họ và tên</label></span>
+                            <span><input name="userName" type="text" class="form-control"></span>
+                        </div>
+                        <div class="form-group">
+                            <span><label>E-mail</label></span>
+                            <span><input name="userEmail" type="text" class="form-control"></span>
+                        </div>
+                        <div class="form-group">
+                            <span><label>Số điện thoại</label></span>
+                            <span><input name="userPhone" type="text" class="form-control"></span>
+                        </div>
+                        <div class="form-group">
+                            <span><label>Nội dung</label></span>
+                            <span><textarea name="userMsg" class="form-control"> </textarea></span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn btn-success" style="width: 100px;">Gửi</button>
+                        </div>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+</div>
