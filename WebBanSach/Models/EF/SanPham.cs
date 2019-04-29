@@ -24,6 +24,7 @@ namespace WebBanSach.Models.EF
         public int SanPhamID { get; set; }
         public Nullable<int> TheLoaiID { get; set; }
         public string TenSanPham { get; set; }
+        public Nullable<int> GiaKM { get; set; }
         public Nullable<int> Gia { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public string AnhDaiDien { get; set; }

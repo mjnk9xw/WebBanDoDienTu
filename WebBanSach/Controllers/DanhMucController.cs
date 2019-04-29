@@ -22,7 +22,7 @@ namespace WebBanSach.Controllers
         [ChildActionOnly]
         public ActionResult SanPhamLienQuan()
         {
-            var listSanPhamLienQuan = db.SanPhams.ToList();
+            var listSanPhamLienQuan = db.SanPhams.Where(item => item.Ngay == new DateTime(2019, 04, 03)).Take(5).ToList();
             return PartialView("~/Views/Shared/_SanPhamLienQuan.cshtml", listSanPhamLienQuan);
         }
     }

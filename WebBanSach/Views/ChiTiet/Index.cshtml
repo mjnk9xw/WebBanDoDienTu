@@ -1,11 +1,10 @@
-﻿
-@{
-    ViewBag.Title = "Chi tiết sách";
+﻿@{
+    ViewBag.Title = "Chi tiết sản phẩm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 @using WebBanSach.Models.EF
-@model Sach
+@model SanPham
 
 
 <!-- start main -->
@@ -25,7 +24,7 @@
                                     </div>
                                     <div class="product-image">
                                         <a class="" href="#" title="Women Shorts" alt="Women Shorts">
-                                            <img src="~/Assets/images/@Model.Hinhminhhoa" alt="Women Shorts" title="@Model.Tensach" />
+                                            <img src="~/Assets/images/@Model.AnhDaiDien" alt="Women Shorts" title="@Model.TenSanPham" />
                                         </a>
                                     </div>
                                 </div>
@@ -37,23 +36,22 @@
                     <div class="span1_of_1_des">
                         <div class="desc1">
                             <div>
-                                <h3 style="font-weight: 700;">@Model.Tensach</h3>
-                                <p>@Model.Motangangon</p>
+                                <h3 style="font-weight: 700;">@Model.TenSanPham</h3>
                             </div>
                             <div style="display: flex;">
                                 <div style="width: 50%; display: flex; justify-content: flex-start;">
-                                    <span>Tác giả</span>
+                                    <span>Nhà sản xuất</span>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
-                                    <strong style="font-weight: 550;">@Model.Tacgia.Tentacgia</strong>
+                                    <strong style="font-weight: 550;">@Model.NSX.TenNSX</strong>
                                 </div>
                             </div>
                             <div style="display: flex;">
                                 <div style="width: 50%; display: flex; justify-content: flex-start;">
-                                    <span>Dịch giả</span>
+                                    <span>Thể loại</span>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
-                                    <strong style="font-weight: 550;">@Model.Tacgia.Tentacgia</strong>
+                                    <strong style="font-weight: 550;">@Model.TheLoai.TenLoai</strong>
                                 </div>
                             </div>
                             <hr />
@@ -62,7 +60,7 @@
                                     <span>Giá thị trường</span>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
-                                    <strong style="text-decoration: line-through; font-size: 14px; color: #888; font-weight: 550;">@(Model.Dongia + "đ")</strong>
+                                    <strong style="text-decoration: line-through; font-size: 14px; color: #888; font-weight: 550;">@(Model.Gia + "đ")</strong>
                                 </div>
                             </div>
                             <div style="display: flex;">
@@ -70,7 +68,7 @@
                                     <span>Giá bán</span>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
-                                    <strong style="font-size: 18px; color: #f15c22; font-weight: 550;">@(Model.Giakm == null ? Model.Dongia + "đ" : Model.Giakm + "đ")</strong>
+                                    <strong style="font-size: 18px; color: #f15c22; font-weight: 550;">@(Model.GiaKM == null ? Model.Gia + "đ" : Model.GiaKM + "đ")</strong>
                                 </div>
                             </div>
                             <div style="display: flex;">
@@ -78,7 +76,7 @@
                                     <span>Tiết kiệm</span>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
-                                    <strong style="font-size: 18px; font-weight: 550;">@(Model.Giakm == null ? 0 + "đ" : (Model.Dongia - Model.Giakm) + "đ")</strong>
+                                    <strong style="font-size: 18px; font-weight: 550;">@(Model.GiaKM == null ? 0 + "đ" : (Model.Gia - Model.GiaKM) + "đ")</strong>
                                 </div>
                             </div>
                             <div style="display: flex;">
@@ -86,7 +84,7 @@
                                     <span>Tình trạng</span>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
-                                    <em style="font-size: 14px; color: #f15c22; font-style: italic;">@(Model.Soluong > 0 ? "Còn hàng" : "Hết hàng")</em>
+                                    <em style="font-size: 14px; color: #f15c22; font-style: italic;">@(Model.SoLuong > 0 ? "Còn hàng" : "Hết hàng")</em>
                                 </div>
                             </div>
                             <hr />
@@ -132,7 +130,7 @@
                         <label for="tab-1" class="tab-label-1">Giới thiệu</label>
 
                         <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
-                        <label for="tab-2" class="tab-label-2">Tác giả</label>
+                        <label for="tab-2" class="tab-label-2">Nhà sản xuất</label>
 
                         <div class="clear-shadow"></div>
 
@@ -140,11 +138,8 @@
               overflow-y: scroll;">
                             <div class="content-1">
                                 <h5>
-                                    @Model.Tensach
+                                    @Model.TenSanPham
                                 </h5>
-                                <p>
-                                    @Model.Mota
-                                </p>
                                 <div class="clear"></div>
                             </div>
                             <div class="content-2">
@@ -171,7 +166,7 @@
                 </div>
                 <!-- start sidebar -->
                 <div class="left_sidebar">
-                    @{ Html.RenderAction("SachLienQuan", "DanhMuc"); }
+                    @{ Html.RenderAction("SanPhamLienQuan", "DanhMuc"); }
                 </div>
                 <!-- end sidebar -->
                 <div class="clear"></div>
@@ -219,7 +214,7 @@
 </div>
 <script>
     const onChangeQuantity = selector => {
-        let quantity = @Model.Soluong
+        let quantity = @Model.SoLuong
         let currentValue = $('#quantityValue').val()
         if (selector === 'btnMinus') {
             --currentValue === 0 ? $('#quantityValue').val(1) : $('#quantityValue').val(currentValue)
@@ -241,17 +236,17 @@
                 let contentString =
                     `
                         <div style="display: flex">
-                            <img src="/Assets/images/@Model.Hinhminhhoa" alt="product_image">
+                            <img src="/Assets/images/@Model.AnhDaiDien" alt="product_image">
                             <div>
-                                <h3>@Model.Tensach</h3>
+                                <h3>@Model.TenSanPham</h3>
                                 <span>Số lượng: ${ quantity }</span><br />
-                                <span>Đơn giá: @(Model.Giakm == null ? Model.Dongia + "đ" : Model.Giakm + "đ")</span>
+                                <span>Đơn giá: @(Model.GiaKM == null ? Model.Gia + "đ" : Model.GiaKM + "đ")</span>
                             </div>
                         </div>
                     `
                 $.ajax({
-                    url: '/ChiTietSach/AddToCart',
-                    data: { productID: @Model.Masach, quantity },
+                    url: '/ChiTiet/AddToCart',
+                    data: { productID: @Model.SanPhamID, quantity },
                     method: 'POST',
                     dataType: 'text',
                     success: function (response) {

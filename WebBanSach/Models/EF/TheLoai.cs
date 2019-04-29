@@ -23,6 +23,7 @@ namespace WebBanSach.Models.EF
         public int TheLoaiID { get; set; }
         public string TenLoai { get; set; }
         public string Mota { get; set; }
+        public string Key { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<SanPham> SanPhams { get; set; }

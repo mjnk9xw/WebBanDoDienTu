@@ -12,7 +12,7 @@ namespace WebBanSach.Controllers
     {
         ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         private const string CartSession = "CART_SESSION";
-        public ActionResult Index(int ID = 1020)
+        public ActionResult Index(int ID)
         {
             var sach = db.SanPhams.SingleOrDefault(item => item.SanPhamID == ID);
             if (sach == null)

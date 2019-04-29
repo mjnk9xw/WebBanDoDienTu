@@ -23,50 +23,47 @@ namespace WebBanSach.Areas.AdminSite.Controllers
                                       .ToList();
             return View(TatCaSach);
         }
-        // [HasCredential(Quyen = 1)]
-        //public ActionResult ThemSach()
-        //{
+        [HasCredential(Quyen = 1)]
+        public ActionResult ThemSach()
+        {
 
-        //    var TatCaChuDe = db.Chudes.ToList();
-        //    var TatCaTacGia = db.Tacgias.ToList();
-        //    ViewBag.TatCaChuDe = TatCaChuDe;
-        //    ViewBag.TatCaTacGia = TatCaTacGia;
-        //    ViewBag.TatCaNXB = TatCaNXB;
-        //    return View();
-        //}
-        //[HttpPost]
-        //[HasCredential(Quyen = 1)]
-        //public ActionResult ThemSach(Sach sach, HttpPostedFileBase Hinhminhhoa)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        sach.Donvitinh = "VNĐ";
-        //        if (Hinhminhhoa != null && Hinhminhhoa.ContentLength > 0)
-        //        {
-        //            var TenAnh = Path.GetFileName(Hinhminhhoa.FileName);
-        //            var DuongDan = Path.Combine(Server.MapPath("~/Assets/images/books/"), TenAnh);
-        //            sach.Hinhminhhoa = TenAnh;
-        //            Hinhminhhoa.SaveAs(DuongDan);
-        //        }
-        //        else
-        //        {
-        //            sach.Hinhminhhoa = "400x400.PNG";
-        //        }
-        //        sach.Ngaycapnhat = DateTime.Now;
-        //        db.Saches.Add(sach);
-        //        db.SaveChanges();
-        //        return RedirectToAction("TatCaSach");
-        //    }
-        //    else
-        //    {
-        //        ViewBag.TatCaChuDe = db.Chudes.ToList(); ;
-        //        ViewBag.TatCaTacGia = db.Tacgias.ToList();
-        //        ViewBag.TatCaNXB = db.Nhaxuatbans.ToList();
-        //        return View(sach);
-        //    }
+            var TatCaChuDe = db.TheLoais.ToList();
+            var TatCaNXB = db.NSXes.ToList();
+            ViewBag.TatCaChuDe = TatCaChuDe;
+            ViewBag.TatCaNXB = TatCaNXB;
+            return View();
+        }
+        [HttpPost]
+        [HasCredential(Quyen = 1)]
+        public ActionResult ThemSach(SanPham sach, HttpPostedFileBase Hinhminhhoa)
+        {
+            if (ModelState.IsValid)
+            {
+              if (Hinhminhhoa != null && Hinhminhhoa.ContentLength > 0)
+                {
+                    var TenAnh = Path.GetFileName(Hinhminhhoa.FileName);
+                    var DuongDan = Path.Combine(Server.MapPath("~/Assets/images/"), TenAnh);
+                    sach.AnhDaiDien = TenAnh;
+                    Hinhminhhoa.SaveAs(DuongDan);
+                }
+                else
+                {
+                    sach.AnhDaiDien = "400x400.PNG";
+                }
+                sach.Ngay = DateTime.Now;
+                db.SanPhams.Add(sach);
+                db.SaveChanges();
+                return RedirectToAction("TatCaSach");
+            }
+            else
+            {
+                ViewBag.TatCaChuDe = db.TheLoais.ToList(); ;
+                ViewBag.TatCaNXB = db.NSXes.ToList();
+                return View(sach);
+            }
 
 
-        //}
+        }
         //[HasCredential(Quyen = 1)]
         //public ActionResult SuaSach(int MaSach)
         //{
