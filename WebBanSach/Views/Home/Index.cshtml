@@ -4,7 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using WebBanSach.Models.EF
-@model IEnumerable<Sach>
+@model IEnumerable<SanPham>
 
 <!-- start slider -->
 <div id="carouselIndicators" class="carousel slide">
@@ -48,15 +48,15 @@
 <div class="wrap">
     <!----start-img-cursual---->
     <div id="owl-demo" class="owl-carousel">
-        @foreach (var item in (ViewBag.ListSachMoi as IEnumerable<Sach>))
+        @foreach (var item in (ViewBag.ListSachMoi as IEnumerable<SanPham>))
         {
             <div class="item" onclick="location.href='/ChiTietSach/Index';">
                 <div class="cau_left">
-                    <img class="lazyOwl" src="~/Assets/images/@item.Hinhminhhoa" alt="Lazy Owl Image">
+                    <img class="lazyOwl" src="~/Assets/images/@item.AnhDaiDien" alt="Lazy Owl Image">
                 </div>
                 <div class="cau_left" style="height: 150px;">
-                    <h4 style="height: 50%; overflow: hidden; text-overflow: ellipsis;"><a href="/Chitietsach/Index" style="font-size: 18px; font-weight: 500;">@item.Tensach</a></h4>
-                    <a href="/ChiTietSach/Index?ID=@item.Masach" class="btn" style="margin-top: 10px;">Đặt mua</a>
+                    <h4 style="height: 50%; overflow: hidden; text-overflow: ellipsis;"><a href="/Chitietsach/Index" style="font-size: 18px; font-weight: 500;">@item.TenSanPham</a></h4>
+                    <a href="/ChiTietSach/Index?ID=@item.SanPhamID" class="btn" style="margin-top: 10px;">Đặt mua</a>
                 </div>
             </div>
         }
@@ -88,12 +88,12 @@
                                 break;
                             }
                             var @item = Model.ToList()[3 * i + j];
-                            var @giacu = item.Dongia != null ? item.Dongia.ToString() + "đ" : "";
-                            var @giamoi = item.Giakm != null ? item.Giakm.ToString() + "đ" : "";
+                            var @giacu = item.Gia != null ? item.Gia.ToString() + "đ" : "";
+                            var @giamoi = item.Gia != null ? item.Gia.ToString() + "đ" : "";
                             <div class="grid1_of_3">
                                 <a href="/ChiTietSach/Index?ID=item.Masach">
-                                    <img src="~/Assets/images/@item.Hinhminhhoa" alt="" style="width: 170px; height: 250px;" />
-                                    <h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="@item.Tensach">@item.Tensach</h3>
+                                    <img src="~/Assets/images/@item.AnhDaiDien" alt="" style="width: 170px; height: 250px;" />
+                                    <h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="@item.TenSanPham">@item.TenSanPham</h3>
                                     <div class="price">
                                         <h4 style="display: flex; align-items: center;">
                                             @if (@giamoi != "")

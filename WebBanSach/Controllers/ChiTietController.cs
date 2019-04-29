@@ -8,18 +8,17 @@ using WebBanSach.Models.EF;
 
 namespace WebBanSach.Controllers
 {
-    public class ChiTietSachController : Controller
+    public class ChiTietController : Controller
     {
-        QuanLyBanSachDbContext db = new QuanLyBanSachDbContext();
+        ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         private const string CartSession = "CART_SESSION";
-        // GET: ChiTietSach
         public ActionResult Index(int ID = 1020)
         {
-            var sach = db.Saches.SingleOrDefault(item => item.Masach == ID);
+            var sach = db.SanPhams.SingleOrDefault(item => item.SanPhamID == ID);
             if (sach == null)
             {
                 Response.StatusCode = 404;
-                Response.StatusDescription = "Không có sách này";
+                Response.StatusDescription = "Không có sản này";
             }
             return View(sach);
         }
@@ -33,23 +32,23 @@ namespace WebBanSach.Controllers
             if (listProductInCart == null)
             {
                 var product = new CartItem();
-                product.Product = db.Saches.SingleOrDefault(item => item.Masach == productID);
+                product.Product = db.SanPhams.SingleOrDefault(item => item.SanPhamID == productID);
                 product.Quantity = quantity;
                 listItem.Add(product);
             }
             else
             {
                 listItem = (List<CartItem>)listProductInCart;
-                bool isExisting = listItem.Exists(item => item.Product.Masach == productID);
+                bool isExisting = listItem.Exists(item => item.Product.SanPhamID == productID);
                 if (isExisting)
                 {
-                    var product = listItem.SingleOrDefault(item => item.Product.Masach == productID);
+                    var product = listItem.SingleOrDefault(item => item.Product.SanPhamID == productID);
                     product.Quantity += quantity;
                 }
                 else
                 {
                     var product = new CartItem();
-                    product.Product = db.Saches.SingleOrDefault(item => item.Masach == productID);
+                    product.Product = db.SanPhams.SingleOrDefault(item => item.SanPhamID == productID);
                     product.Quantity = quantity;
                     listItem.Add(product);
                 }

@@ -149,7 +149,7 @@
     <Compile Include="Areas\AdminSite\Controllers\AdminQuanLyKhachHangController.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminQuanLySachController.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminTrangChuController.cs" />
-    <Compile Include="Controllers\ChiTietSachController.cs" />
+    <Compile Include="Controllers\ChiTietController.cs" />
     <Compile Include="Controllers\DangKiController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
     <Compile Include="Controllers\DanhMucController.cs" />
@@ -162,16 +162,54 @@
     <Compile Include="Models\Common\CartItem.cs" />
     <Compile Include="Models\Common\HasCredentialAttribute.cs" />
     <Compile Include="Models\Common\UserLogin.cs" />
-    <Compile Include="Models\EF\Chinhanh.cs" />
-    <Compile Include="Models\EF\ChiTietGioHang.cs" />
-    <Compile Include="Models\EF\Chude.cs" />
-    <Compile Include="Models\EF\Giohangkh.cs" />
-    <Compile Include="Models\EF\Khachhang.cs" />
-    <Compile Include="Models\EF\LienHe.cs" />
-    <Compile Include="Models\EF\Nhaxuatban.cs" />
-    <Compile Include="Models\EF\QuanLyBanSachDbContext.cs" />
-    <Compile Include="Models\EF\Sach.cs" />
-    <Compile Include="Models\EF\Tacgia.cs" />
+    <Compile Include="Models\EF\AlbumAnh.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\ChiTietHoaDon.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\HoaDon.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\KhachHang.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\LienHe.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\Model.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\Model.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\Model.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\NSX.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\SanPham.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\sp_helpdiagramdefinition_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\sp_helpdiagrams_Result.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\sysdiagram.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EF\TheLoai.cs">
+      <DependentUpon>Model.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2910,6 +2948,16 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Models\EF\Model.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\EF\Model.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>Model.edmx</DependentUpon>
+      <LastGenOutput>Model.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Assets\fonts\Amble-Regular-webfont.ttf" />
@@ -3497,6 +3545,13 @@
     <Content Include="Areas\AdminSite\Views\AdminQuanLySach\ThemSach.cshtml" />
     <Content Include="Areas\AdminSite\Views\AdminQuanLySach\SuaSach.cshtml" />
     <Content Include="Areas\AdminSite\Views\AdminTrangChu\Index.cshtml" />
+    <EntityDeploy Include="Models\EF\Model.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\EF\Model.edmx.diagram">
+      <DependentUpon>Model.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -3516,7 +3571,9 @@
     <Content Include="Scripts\umd\popper-utils.min.js" />
     <Content Include="Scripts\umd\popper.js" />
     <Content Include="Scripts\umd\popper.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -3530,7 +3587,7 @@
     <Content Include="Views\DanhMuc\Index.cshtml" />
     <Content Include="Views\GioHang\Index.cshtml" />
     <Content Include="Views\LienHe\Index.cshtml" />
-    <Content Include="Views\ChiTietSach\Index.cshtml" />
+    <Content Include="Views\ChiTiet\Index.cshtml" />
     <Content Include="Views\DangNhap\Index.cshtml" />
     <Content Include="Views\DangKi\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
@@ -3567,6 +3624,7 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{4A0DDDB5-7A95-4FBF-97CC-616D07737A77}" />
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

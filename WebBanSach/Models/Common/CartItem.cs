@@ -9,7 +9,7 @@ namespace WebBanSach.Models.Common
     [Serializable]
     public class CartItem
     {
-        public Sach Product { get; set; }
+        public SanPham Product { get; set; }
         public int Quantity { get; set; }
     }
 }

@@ -12,7 +12,7 @@ namespace WebBanSach.Models.Common
         public int Quyen { set; get; }
         protected override bool AuthorizeCore(HttpContextBase httpContext)
         {
-            var session = (Khachhang)HttpContext.Current.Session["ADMIN_SESSION"];
+            var session = (KhachHang)HttpContext.Current.Session["ADMIN_SESSION"];
             if(session != null && session.Quyen == 1)
             {
                 return true;

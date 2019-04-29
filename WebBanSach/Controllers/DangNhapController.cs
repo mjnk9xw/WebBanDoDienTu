@@ -10,7 +10,7 @@ namespace WebBanSach.Controllers
 {
     public class DangNhapController : Controller
     {
-        QuanLyBanSachDbContext db = new QuanLyBanSachDbContext();
+        ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         // GET: DangNhap
         public ActionResult Index()
         {
@@ -29,7 +29,7 @@ namespace WebBanSach.Controllers
         {
             if (ModelState.IsValid)
             {
-                Khachhang khachHang = db.Khachhangs.SingleOrDefault(item => item.Tendn == user.Username && item.Matkhau == user.Password);
+                KhachHang khachHang = db.KhachHangs.SingleOrDefault(item => item.TaiKhoan == user.Username && item.MatKhau_MaHoa == user.Password);
                 if (khachHang == null)
                 {
                     ModelState.AddModelError("", "Tên đăng nhập hoặc mật khẩu không đúng. Xin kiểm tra lại!");
