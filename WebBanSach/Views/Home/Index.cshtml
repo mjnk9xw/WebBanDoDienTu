@@ -4,7 +4,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @using WebBanSach.Models.EF
+<<<<<<< HEAD
 @model IEnumerable<Sach>
+=======
+@model IEnumerable<SanPham>
+>>>>>>> db6aed9887847b243ae8c635d41b1d5785b6dff8
 
 <!-- start slider -->
 <div id="carouselIndicators" class="carousel slide">
@@ -18,6 +22,7 @@
     <!-- carousel content -->
     <div class="carousel-inner">
         <div class="carousel-item active" style="margin: auto; height: 400px;">
+<<<<<<< HEAD
             <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/Oppo-f11pro-800-300-800x300.png" alt="First slide">
         </div>
 
@@ -31,6 +36,21 @@
 
         <div class="carousel-item" style="margin: auto; height: 400px;">
             <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/21_04_2019_16_27_07_Galaxy-A10---normal-sale-800-170.png" alt="Fourth slide">
+=======
+            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/68af7052-7075-4828-bff5-94327137d13e.jpg" alt="First slide">
+        </div>
+
+        <div class="carousel-item" style="margin: auto; height: 400px;">
+            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/329ec368-6113-4e26-88e0-f6f1683e61b9.png" alt="Second slide">
+        </div>
+
+        <div class="carousel-item" style="margin: auto; height: 400px;">
+            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/612829c3-d07b-405f-b023-fbce0a38c4de.jpg" alt="Third slide">
+        </div>
+
+        <div class="carousel-item" style="margin: auto; height: 400px;">
+            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/883b8a35-12ee-4a0e-98db-b3d1844c4d80.jpg" alt="Fourth slide">
+>>>>>>> db6aed9887847b243ae8c635d41b1d5785b6dff8
         </div>
     </div>
 
@@ -48,6 +68,7 @@
 <div class="wrap">
     <!----start-img-cursual---->
     <div id="owl-demo" class="owl-carousel">
+<<<<<<< HEAD
         @foreach (var item in (ViewBag.ListSachMoi as IEnumerable<Sach>))
         {
             <div class="item" onclick="location.href='/ChiTietSach/Index';">
@@ -57,6 +78,17 @@
                 <div class="cau_left" style="height: 150px;">
                     <h4 style="height: 50%; overflow: hidden; text-overflow: ellipsis;"><a href="/Chitietsach/Index" style="font-size: 18px; font-weight: 500;">@item.Tensach</a></h4>
                     <a href="/ChiTietSach/Index?ID=@item.Masach" class="btn" style="margin-top: 10px;">Đặt mua</a>
+=======
+        @foreach (var item in (ViewBag.ListSachMoi as IEnumerable<SanPham>))
+        {
+            <div class="item" onclick="location.href='/ChiTietSach/Index';">
+                <div class="cau_left">
+                    <img class="lazyOwl" src="~/Assets/images/@item.AnhDaiDien" alt="Lazy Owl Image">
+                </div>
+                <div class="cau_left" style="height: 150px;">
+                    <h4 style="height: 50%; overflow: hidden; text-overflow: ellipsis;"><a href="/Chitietsach/Index" style="font-size: 18px; font-weight: 500;">@item.TenSanPham</a></h4>
+                    <a href="/ChiTietSach/Index?ID=@item.SanPhamID" class="btn" style="margin-top: 10px;">Đặt mua</a>
+>>>>>>> db6aed9887847b243ae8c635d41b1d5785b6dff8
                 </div>
             </div>
         }
@@ -67,7 +99,11 @@
 <div class="main_bg1">
     <div class="wrap">
         <div class="main1">
+<<<<<<< HEAD
             <h2>Sản phẩm mới</h2>
+=======
+            <h2>Sách mới</h2>
+>>>>>>> db6aed9887847b243ae8c635d41b1d5785b6dff8
         </div>
     </div>
 </div>
@@ -88,12 +124,21 @@
                                 break;
                             }
                             var @item = Model.ToList()[3 * i + j];
+<<<<<<< HEAD
                             var @giacu = item.Dongia != null ? item.Dongia.ToString() + "đ" : "";
                             var @giamoi = item.Giakm != null ? item.Giakm.ToString() + "đ" : "";
                             <div class="grid1_of_3">
                                 <a href="/ChiTietSach/Index?ID=item.Masach">
                                     <img src="~/Assets/images/@item.Hinhminhhoa" alt="" style="width: 170px; height: 250px;" />
                                     <h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="@item.Tensach">@item.Tensach</h3>
+=======
+                            var @giacu = item.Gia != null ? item.Gia.ToString() + "đ" : "";
+                            var @giamoi = item.Gia != null ? item.Gia.ToString() + "đ" : "";
+                            <div class="grid1_of_3">
+                                <a href="/ChiTietSach/Index?ID=item.Masach">
+                                    <img src="~/Assets/images/@item.AnhDaiDien" alt="" style="width: 170px; height: 250px;" />
+                                    <h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap;" title="@item.TenSanPham">@item.TenSanPham</h3>
+>>>>>>> db6aed9887847b243ae8c635d41b1d5785b6dff8
                                     <div class="price">
                                         <h4 style="display: flex; align-items: center;">
                                             @if (@giamoi != "")

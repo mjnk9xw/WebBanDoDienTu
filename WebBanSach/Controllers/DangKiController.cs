@@ -9,18 +9,18 @@ namespace WebBanSach.Controllers
 {
     public class DangKiController : Controller
     {
-        QuanLyBanSachDbContext db = new QuanLyBanSachDbContext();
+        ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         // GET: DangKi
         public ActionResult Index()
         {
             return View();
         }
-        public JsonResult ThemTaiKhoan(Khachhang user)
+        public JsonResult ThemTaiKhoan(KhachHang user)
         {
             try
             {
                 user.Quyen = 2;
-                db.Khachhangs.Add(user);
+                db.KhachHangs.Add(user);
                 db.SaveChanges();
                 
                 if (Session["USER_SESSION"] == null)

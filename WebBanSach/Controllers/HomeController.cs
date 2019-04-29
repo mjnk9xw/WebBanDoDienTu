@@ -9,11 +9,11 @@ namespace WebBanSach.Controllers
 {
     public class HomeController : Controller
     {
-        QuanLyBanSachDbContext db = new QuanLyBanSachDbContext();
+        ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         public ActionResult Index()
         {
-            List<Sach> lstSachMoi = db.Saches.Where(item => item.Ngaycapnhat == new DateTime(2019, 04, 02)).ToList();
-            List<Sach> lstSachNoiBat = db.Saches.ToList();
+            List<SanPham> lstSachMoi = db.SanPhams.Where(item => item.Ngay == new DateTime(2019, 04, 02)).ToList();
+            List<SanPham> lstSachNoiBat = db.SanPhams.ToList();
 
             ViewBag.ListSachMoi = lstSachMoi;
             return View(lstSachNoiBat);
@@ -22,10 +22,10 @@ namespace WebBanSach.Controllers
         [HttpPost]
         public ActionResult TimKiem(string searchText)
         {
-            List<Sach> lstSachMoi = db.Saches.Where(item => item.Ngaycapnhat == new DateTime(2019, 04, 02)).ToList();
+            List<SanPham> lstSachMoi = db.SanPhams.Where(item => item.Ngay == new DateTime(2019, 04, 02)).ToList();
             ViewBag.ListSachMoi = lstSachMoi;
 
-            var listSach = db.Saches.Where(item => item.Tensach.Contains(searchText)).ToList();
+            var listSach = db.SanPhams.Where(item => item.TenSanPham.Contains(searchText)).ToList();
             return View("Index", listSach);
         }
     }

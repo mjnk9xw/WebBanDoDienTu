@@ -10,7 +10,7 @@ namespace WebBanSach.Controllers
 {
     public class GioHangController : Controller
     {
-        QuanLyBanSachDbContext db = new QuanLyBanSachDbContext();
+        ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         // GET: GioHang
         public ActionResult Index()
         {
@@ -24,7 +24,7 @@ namespace WebBanSach.Controllers
             try
             {
                 var lstItemInCart = Session["CART_SESSION"] as List<CartItem>;
-                var productRemoved = lstItemInCart.Single(item => item.Product.Masach == productID);
+                var productRemoved = lstItemInCart.Single(item => item.Product.SanPhamID == productID);
                 lstItemInCart.Remove(productRemoved);
                 Session["CART_SESSION"] = lstItemInCart;
                 return Json(new { status = true });
@@ -43,7 +43,7 @@ namespace WebBanSach.Controllers
                 var listItemInCart = Session["CART_SESSION"] as List<CartItem>;
                 foreach(int productID in listProduct)
                 {
-                    var productRemoved = listItemInCart.Single(item => item.Product.Masach == productID);
+                    var productRemoved = listItemInCart.Single(item => item.Product.SanPhamID == productID);
                     listItemInCart.Remove(productRemoved);
                 }
                 Session["CART_SESSION"] = listItemInCart;

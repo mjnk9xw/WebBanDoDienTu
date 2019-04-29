@@ -1,5 +1,4 @@
-# WebBanSach
-Nhóm 8 :  Nguyễn Văn Minh – KHMT15
-          Nguyễn Ngọc Hiệp – CNTT15
-          Hoàng Văn Tuyền – CNTT15
-				  Hà Thị Kim Biên – HTTT15
+# WebBanDoDienTu
+- Nguyễn Văn Minh - KHMT15
+- Hoàng Minh Đại - KTPM15
+- Minh Hùng

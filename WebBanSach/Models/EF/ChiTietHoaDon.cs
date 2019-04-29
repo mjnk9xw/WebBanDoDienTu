@@ -12,12 +12,15 @@ namespace WebBanSach.Models.EF
     using System;
     using System.Collections.Generic;
     
-    public partial class LienHe
+    public partial class ChiTietHoaDon
     {
-        public int ID { get; set; }
-        public string HoTen { get; set; }
-        public string Email { get; set; }
-        public string Phone { get; set; }
-        public string NoiDung { get; set; }
+        public int ChiTietHoaDonID { get; set; }
+        public Nullable<int> HoaDonID { get; set; }
+        public Nullable<int> SanPhamID { get; set; }
+        public Nullable<int> SoLuong { get; set; }
+        public Nullable<int> ThanhTien { get; set; }
+    
+        public virtual HoaDon HoaDon { get; set; }
+        public virtual SanPham SanPham { get; set; }
     }
 }
