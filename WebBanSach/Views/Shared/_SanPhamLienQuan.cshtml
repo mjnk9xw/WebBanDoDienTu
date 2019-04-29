@@ -1,0 +1,46 @@
+﻿@using WebBanSach.Models.EF;
+@model IEnumerable<Sach>
+
+<div class="sellers">
+    <h4>Sách có liên quan</h4>
+    <div style="height: 850px; overflow-y: scroll;">
+        @{
+            foreach (Sach item in Model)
+            {
+                var giamoi = item.Giakm == null ? "" : item.Giakm.ToString() + "đ";
+                var giacu = item.Dongia.ToString() + "đ";
+                <div style="display: flex; margin: 25px auto; width: 200px;" title="@item.Tensach">
+                    <a href="#" style="text-decoration: none; width: 100%">
+                        <img src="~/Assets/images/@item.Hinhminhhoa" alt="image" style="width: 135px; height: 180px;">
+                        <div style="font-weight: 700; color: #999; overflow: hidden">
+                            @item.Tensach
+                        </div>
+                        <div style="font-weight: 400; color: #1d9d74; font-size: 12px;">
+                            @item.Tacgia.Tentacgia
+                        </div>
+                        <div>
+                            @if (giamoi == "")
+                            {
+                                <span style="color: #f15c22; font-size: 16px; font-weight: 500;">@giacu</span>
+                                <span style="padding: 5px; color: #fff; background-color: #f51919;">-0%</span>
+                            }
+                            else
+                            {
+                                <span style="color: #f15c22; font-size: 16px; font-weight: 500;">@giamoi</span>
+                                <span style="color: #333333; text-decoration: line-through; font-size: 12px">@giacu</span>
+                                <span style="padding: 5px; color: #fff; background-color: #f51919;">@((int)(((decimal)item.Dongia - item.Giakm) * 100 / (item.Dongia)))%</span>
+                            }
+                        </div>
+                    </a>
+                </div>
+            }
+        }
+    </div>
+    <div class="banner-wrap bottom_banner color_link">
+        <a href="#" class="main_link">
+            <figure><img src="~/Assets/images/delivery.png" alt=""></figure>
+            <h5><span>Free Shipping</span><br> on orders over 250K.</h5>
+            <p>This offer is valid on all our store items.</p>
+        </a>
+    </div>
+</div>
