@@ -13,17 +13,17 @@ namespace WebBanSach.Controllers
         public ActionResult Index()
         {
             var lstDanhMuc = db.TheLoais.ToList();
-            var lstSach = db.SanPhams.ToList();
+            var lstSanPham = db.SanPhams.ToList();
 
             ViewBag.ListDanhMuc = lstDanhMuc;
-            return View(lstSach);
+            return View(lstSanPham);
         }
 
         [ChildActionOnly]
-        public ActionResult SachLienQuan()
+        public ActionResult SanPhamLienQuan()
         {
-            var listSachLienQuan = db.SanPhams.ToList();
-            return PartialView("~/Views/Shared/_SanPhamLienQuan.cshtml", listSachLienQuan);
+            var listSanPhamLienQuan = db.SanPhams.ToList();
+            return PartialView("~/Views/Shared/_SanPhamLienQuan.cshtml", listSanPhamLienQuan);
         }
     }
 }

@@ -12,21 +12,21 @@ namespace WebBanSach.Controllers
         ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         public ActionResult Index()
         {
-            List<SanPham> lstSachMoi = db.SanPhams.ToList();
-            List<SanPham> lstSachNoiBat = db.SanPhams.ToList();
+            List<SanPham> lstSanPhamMoi = db.SanPhams.ToList();
+            List<SanPham> lstSanPhamNoiBat = db.SanPhams.ToList();
 
-            ViewBag.ListSachMoi = lstSachMoi;
-            return View(lstSachNoiBat);
+            ViewBag.ListSanPhamMoi = lstSanPhamMoi ;
+            return View(lstSanPhamNoiBat);
         }
 
         [HttpPost]
         public ActionResult TimKiem(string searchText)
         {
-            List<SanPham> lstSachMoi = db.SanPhams.Where(item => item.Ngay == new DateTime(2019, 04, 02)).ToList();
-            ViewBag.ListSachMoi = lstSachMoi;
+            List<SanPham> lstSanPhamMoi = db.SanPhams.Where(item => item.Ngay == new DateTime(2019, 04, 02)).ToList();
+            ViewBag.ListSanPhamMoi = lstSanPhamMoi;
 
-            var listSach = db.SanPhams.Where(item => item.TenSanPham.Contains(searchText)).ToList();
-            return View("Index", listSach);
+            var listSanPham = db.SanPhams.Where(item => item.TenSanPham.Contains(searchText)).ToList();
+            return View("Index", listSanPham);
         }
     }
 }

@@ -18,19 +18,19 @@
     <!-- carousel content -->
     <div class="carousel-inner">
         <div class="carousel-item active" style="margin: auto; height: 400px;">
-            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/68af7052-7075-4828-bff5-94327137d13e.jpg" alt="First slide">
+            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/68af7052-7075-4828-bff5-94327137d13e.png" alt="First slide">
         </div>
 
         <div class="carousel-item" style="margin: auto; height: 400px;">
-            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/329ec368-6113-4e26-88e0-f6f1683e61b9.png" alt="Second slide">
+            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/329ec368-6113-4e26-88e0-f6f1683e61b.png" alt="Second slide">
         </div>
 
         <div class="carousel-item" style="margin: auto; height: 400px;">
-            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/612829c3-d07b-405f-b023-fbce0a38c4de.jpg" alt="Third slide">
+            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/612829c3-d07b-405f-b023-fbce0a38c4de.png" alt="Third slide">
         </div>
 
         <div class="carousel-item" style="margin: auto; height: 400px;">
-            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/883b8a35-12ee-4a0e-98db-b3d1844c4d80.jpg" alt="Fourth slide">
+            <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/883b8a35-12ee-4a0e-98db-b3d1844c4d80.png" alt="Fourth slide">
         </div>
     </div>
 
@@ -48,7 +48,7 @@
 <div class="wrap">
     <!----start-img-cursual---->
     <div id="owl-demo" class="owl-carousel">
-        @foreach (var item in (ViewBag.ListSachMoi as IEnumerable<SanPham>))
+        @foreach (var item in (ViewBag.ListSanPhamMoi as IEnumerable<SanPham>))
         {
             <div class="item" onclick="location.href='/ChiTietSach/Index';">
                 <div class="cau_left">
@@ -67,7 +67,7 @@
 <div class="main_bg1">
     <div class="wrap">
         <div class="main1">
-            <h2>Sách mới</h2>
+            <h2>Sản Phẩm Mới</h2>
         </div>
     </div>
 </div>
