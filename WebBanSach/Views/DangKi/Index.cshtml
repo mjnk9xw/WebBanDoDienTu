@@ -126,25 +126,25 @@
             let messageErr = ''
             let data = {}
 
-            data.HoTenKh = $('input[name="Hotenkh"]').val()
-            data.DiaChiKh = $('input[name="Diachikh"]').val()
-            data.DienThoaiKh = $('input[name="Dienthoaikh"]').val()
+            data.TenKhachHang = $('input[name="Hotenkh"]').val()
+            data.DiaChi = $('input[name="Diachikh"]').val()
+            data.SDT = $('input[name="Dienthoaikh"]').val()
             data.NgaySinh = $('input[name="Ngaysinh"]').val()
-            data.Gioitinh = $('input[name="Gioitinh"]:checked').val()
+            data.GioiTinh = $('input[name="Gioitinh"]:checked').val()
             data.Email = $('input[name="Email"]').val()
-            data.Tendn = $('input[name="Tendn"]').val()
-            data.Matkhau = $('input[name="Matkhau"]').val()
+            data.TaiKhoan = $('input[name="Tendn"]').val()
+            data.Matkhau_MaHoa = $('input[name="Matkhau"]').val()
             data.XacNhanMatKhau = $('input[name="XacNhanMatKhau"]').val()
 
-            if (!data.HoTenKh) {
+            if (!data.TenKhachHang) {
                 messageErr = 'Bạn chưa nhập họ tên'
-            } else if (!data.DiaChiKh) {
+            } else if (!data.DiaChi) {
                 messageErr = 'Bạn chưa nhập địa chỉ'
-            } else if (!data.Tendn) {
+            } else if (!data.TaiKhoan) {
                 messageErr = 'Bạn chưa nhập tên đăng nhập'
-            } else if (!data.Matkhau) {
+            } else if (!data.Matkhau_MaHoa) {
                 messageErr = 'Bạn chưa nhập mật khẩu'
-            } else if (data.Matkhau !== data.XacNhanMatKhau) {
+            } else if (data.Matkhau_MaHoa !== data.XacNhanMatKhau) {
                 messageErr = 'Xác nhận mật khẩu không đúng'
             }
 

@@ -23,14 +23,14 @@ namespace WebBanSach.Models.EF
         public int KhachHangID { get; set; }
         public string TenKhachHang { get; set; }
         public Nullable<bool> GioiTinh { get; set; }
-        public Nullable<System.DateTime> NgaySInh { get; set; }
-        public string CMT { get; set; }
+        public Nullable<System.DateTime> NgaySinh { get; set; }
         public string DiaChi { get; set; }
         public string MatKhau_MaHoa { get; set; }
         public string TaiKhoan { get; set; }
         public Nullable<int> Tien { get; set; }
         public Nullable<int> Quyen { get; set; }
         public string SDT { get; set; }
+        public string Email { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<HoaDon> HoaDons { get; set; }

@@ -39,14 +39,14 @@
           <Property Name="KhachHangID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TenKhachHang" Type="nvarchar(max)" />
           <Property Name="GioiTinh" Type="bit" />
-          <Property Name="NgaySInh" Type="smalldatetime" />
-          <Property Name="CMT" Type="varchar" MaxLength="12" />
+          <Property Name="NgaySinh" Type="smalldatetime" />
           <Property Name="DiaChi" Type="nvarchar(max)" />
           <Property Name="MatKhau_MaHoa" Type="varchar(max)" />
           <Property Name="TaiKhoan" Type="varchar" MaxLength="50" />
           <Property Name="Tien" Type="int" />
           <Property Name="Quyen" Type="int" />
           <Property Name="SDT" Type="varchar" MaxLength="12" />
+          <Property Name="Email" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="LienHe">
           <Key>
@@ -239,14 +239,14 @@
           <Property Name="KhachHangID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TenKhachHang" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="GioiTinh" Type="Boolean" />
-          <Property Name="NgaySInh" Type="DateTime" Precision="0" />
-          <Property Name="CMT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="NgaySinh" Type="DateTime" Precision="0" />
           <Property Name="DiaChi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="MatKhau_MaHoa" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
           <Property Name="TaiKhoan" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="Tien" Type="Int32" />
           <Property Name="Quyen" Type="Int32" />
           <Property Name="SDT" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="Email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="HoaDons" Relationship="Self.FK_HoaDon_KhachHang" FromRole="KhachHang" ToRole="HoaDon" />
         </EntityType>
         <EntityType Name="LienHe">
@@ -444,14 +444,14 @@
                 <ScalarProperty Name="KhachHangID" ColumnName="KhachHangID" />
                 <ScalarProperty Name="TenKhachHang" ColumnName="TenKhachHang" />
                 <ScalarProperty Name="GioiTinh" ColumnName="GioiTinh" />
-                <ScalarProperty Name="NgaySInh" ColumnName="NgaySInh" />
-                <ScalarProperty Name="CMT" ColumnName="CMT" />
+                <ScalarProperty Name="NgaySinh" ColumnName="NgaySinh" />
                 <ScalarProperty Name="DiaChi" ColumnName="DiaChi" />
                 <ScalarProperty Name="MatKhau_MaHoa" ColumnName="MatKhau_MaHoa" />
                 <ScalarProperty Name="TaiKhoan" ColumnName="TaiKhoan" />
                 <ScalarProperty Name="Tien" ColumnName="Tien" />
                 <ScalarProperty Name="Quyen" ColumnName="Quyen" />
                 <ScalarProperty Name="SDT" ColumnName="SDT" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
