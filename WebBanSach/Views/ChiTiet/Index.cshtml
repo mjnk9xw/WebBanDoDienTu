@@ -1,0 +1,280 @@
+﻿
+@{
+    ViewBag.Title = "Chi tiết sách";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using WebBanSach.Models.EF
+@model Sach
+
+
+<!-- start main -->
+<div class="main_bg">
+    <div class="wrap">
+        <div class="main">
+            <!-- start content -->
+            <div class="single">
+                <!-- start span1_of_1 -->
+                <div class="left_content">
+                    <div class="span1_of_1">
+                        <!-- start product_slider -->
+                        <div class="product-view">
+                            <div class="product-essential">
+                                <div class="product-img-box">
+                                    <div class="more-views" style="float:left;">
+                                    </div>
+                                    <div class="product-image">
+                                        <a class="" href="#" title="Women Shorts" alt="Women Shorts">
+                                            <img src="~/Assets/images/@Model.Hinhminhhoa" alt="Women Shorts" title="@Model.Tensach" />
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end product_slider -->
+                    </div>
+                    <!-- start span1_of_1 -->
+                    <div class="span1_of_1_des">
+                        <div class="desc1">
+                            <div>
+                                <h3 style="font-weight: 700;">@Model.Tensach</h3>
+                                <p>@Model.Motangangon</p>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 50%; display: flex; justify-content: flex-start;">
+                                    <span>Tác giả</span>
+                                </div>
+                                <div style="width: 50%; display: flex; justify-content: flex-end;">
+                                    <strong style="font-weight: 550;">@Model.Tacgia.Tentacgia</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 50%; display: flex; justify-content: flex-start;">
+                                    <span>Dịch giả</span>
+                                </div>
+                                <div style="width: 50%; display: flex; justify-content: flex-end;">
+                                    <strong style="font-weight: 550;">@Model.Tacgia.Tentacgia</strong>
+                                </div>
+                            </div>
+                            <hr />
+                            <div style="display: flex;">
+                                <div style="width: 50%; display: flex; justify-content: flex-start;">
+                                    <span>Giá thị trường</span>
+                                </div>
+                                <div style="width: 50%; display: flex; justify-content: flex-end;">
+                                    <strong style="text-decoration: line-through; font-size: 14px; color: #888; font-weight: 550;">@(Model.Dongia + "đ")</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 50%; display: flex; justify-content: flex-start;">
+                                    <span>Giá bán</span>
+                                </div>
+                                <div style="width: 50%; display: flex; justify-content: flex-end;">
+                                    <strong style="font-size: 18px; color: #f15c22; font-weight: 550;">@(Model.Giakm == null ? Model.Dongia + "đ" : Model.Giakm + "đ")</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 50%; display: flex; justify-content: flex-start;">
+                                    <span>Tiết kiệm</span>
+                                </div>
+                                <div style="width: 50%; display: flex; justify-content: flex-end;">
+                                    <strong style="font-size: 18px; font-weight: 550;">@(Model.Giakm == null ? 0 + "đ" : (Model.Dongia - Model.Giakm) + "đ")</strong>
+                                </div>
+                            </div>
+                            <div style="display: flex;">
+                                <div style="width: 50%; display: flex; justify-content: flex-start;">
+                                    <span>Tình trạng</span>
+                                </div>
+                                <div style="width: 50%; display: flex; justify-content: flex-end;">
+                                    <em style="font-size: 14px; color: #f15c22; font-style: italic;">@(Model.Soluong > 0 ? "Còn hàng" : "Hết hàng")</em>
+                                </div>
+                            </div>
+                            <hr />
+                            <!-- <h5>Rs. 399 <a href="#">click for offer</a></h5> -->
+                            <div class="available" style="border-top: none;">
+                                <div style="display: flex;">
+                                    <div style="width: 75px;">Số lượng:</div>
+                                    <form class="form">
+                                        <div class="form-group">
+                                            <div class="btn-group">
+                                                <button id="btnMinus" type="button" class="btn" style="background-color: #4CCFC1; color: #fff;" onclick="onChangeQuantity('btnMinus')"><i class="fa fa-minus"></i></button>
+                                                <input id="quantityValue" type="text" class="form-control" value="1" style="width: 65px; border-radius: unset; text-align: center;">
+                                                <button id="btnPlus" type="button" class="btn" style="background-color: #4CCFC1; color: #fff;" onclick="onChangeQuantity('btnPlus')"><i class="fa fa-plus"></i></button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <div class="btn_form">
+                                    <form>
+                                        <input type="submit" id="addToCart" value="Thêm vào giỏ hàng" />
+                                    </form>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="share-desc">
+                                <div class="share">
+                                    <h4>Chia sẻ :</h4>
+                                    <ul class="share_nav">
+                                        <li><a href="#"><img src="~/Assets/images/facebook.png" title="facebook"></a></li>
+                                        <li><a href="#"><img src="~/Assets/images/twitter.png" title="Twiiter"></a></li>
+                                        <li><a href="#"><img src="~/Assets/images/rss.png" title="Rss"></a></li>
+                                        <li><a href="#"><img src="~/Assets/images/gpluse.png" title="Google+"></a></li>
+                                    </ul>
+                                </div>
+                                <div class="clear"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <!-- start tabs -->
+                    <section class="tabs">
+                        <input id="tab-1" type="radio" name="radio-set" class="tab-selector-1" checked="checked">
+                        <label for="tab-1" class="tab-label-1">Giới thiệu</label>
+
+                        <input id="tab-2" type="radio" name="radio-set" class="tab-selector-2">
+                        <label for="tab-2" class="tab-label-2">Tác giả</label>
+
+                        <div class="clear-shadow"></div>
+
+                        <div class="content" style="height: 450px;
+              overflow-y: scroll;">
+                            <div class="content-1">
+                                <h5>
+                                    @Model.Tensach
+                                </h5>
+                                <p>
+                                    @Model.Mota
+                                </p>
+                                <div class="clear"></div>
+                            </div>
+                            <div class="content-2">
+                                <p class="para">
+                                    <span>WELCOME </span> Contrary to popular belief, Lorem Ipsum is not simply random
+                                    text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years
+                                    old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
+                                    the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites
+                                    of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from
+                                    sections
+                                </p>
+                                <ul class="qua_nav">
+                                    <li>Multimedia Systems</li>
+                                    <li>Digital media adapters</li>
+                                    <li>
+                                        Set top boxes for HDTV and IPTV Player applications on various Operating Systems and Hardware
+                                        Platforms
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </section>
+                    <!-- end tabs -->
+                </div>
+                <!-- start sidebar -->
+                <div class="left_sidebar">
+                    @{ Html.RenderAction("SachLienQuan", "DanhMuc"); }
+                </div>
+                <!-- end sidebar -->
+                <div class="clear"></div>
+            </div>
+            <!-- end content -->
+        </div>
+    </div>
+    <div id="modalAddToCart" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalAddToCart" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Sản phẩm đã được thêm vào giỏ hàng</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="addProductSuccess">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="onRedirectToAction('/DanhMuc/Index')">Tiếp tục mua hàng</button>
+                    <button type="button" class="btn btn-success" onclick="onRedirectToAction('/GioHang/Index')">Đến giỏ hàng</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modalLogin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="modalLogin" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thông báo</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger">Bạn phải đăng nhập để sử dụng chức năng này</div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="onRedirectToAction('/DangNhap/Index')">Đăng nhập</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Đóng lại</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const onChangeQuantity = selector => {
+        let quantity = @Model.Soluong
+        let currentValue = $('#quantityValue').val()
+        if (selector === 'btnMinus') {
+            --currentValue === 0 ? $('#quantityValue').val(1) : $('#quantityValue').val(currentValue)
+        } else {
+            ++currentValue > quantity ? $('#quantityValue').val(quantity) : $('#quantityValue').val(currentValue)
+        }
+    }
+    const onRedirectToAction = url => {
+        $(location).attr("href", url)
+    }
+</script>
+@{ 
+    if (Session["USER_SESSION"] != null)
+    {
+        <script>
+            $('#addToCart').click(e => {
+                e.preventDefault()
+                let quantity = $('#quantityValue').val()
+                let contentString =
+                    `
+                        <div style="display: flex">
+                            <img src="/Assets/images/@Model.Hinhminhhoa" alt="product_image">
+                            <div>
+                                <h3>@Model.Tensach</h3>
+                                <span>Số lượng: ${ quantity }</span><br />
+                                <span>Đơn giá: @(Model.Giakm == null ? Model.Dongia + "đ" : Model.Giakm + "đ")</span>
+                            </div>
+                        </div>
+                    `
+                $.ajax({
+                    url: '/ChiTietSach/AddToCart',
+                    data: { productID: @Model.Masach, quantity },
+                    method: 'POST',
+                    dataType: 'text',
+                    success: function (response) {
+                        response = JSON.parse(response)
+                        if (response.status === true) {
+                            $('#addProductSuccess').html(contentString)
+                            $('#modalAddToCart').modal('show')
+                        } else {
+                            alert('Thêm thất bại')
+                        }
+                    }
+                })
+            })
+        </script>
+    }
+    else
+    {
+        <script>
+            $('#addToCart').click(e => {
+                e.preventDefault()
+                $('#modalLogin').modal('show')
+            })
+        </script>
+    }
+}
+
