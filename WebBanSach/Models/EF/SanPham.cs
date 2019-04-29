@@ -23,13 +23,12 @@ namespace WebBanSach.Models.EF
     
         public int SanPhamID { get; set; }
         public Nullable<int> TheLoaiID { get; set; }
-        public string Mota { get; set; }
+        public string TenSanPham { get; set; }
         public Nullable<int> Gia { get; set; }
         public Nullable<int> SoLuong { get; set; }
         public string AnhDaiDien { get; set; }
         public Nullable<int> NSXID { get; set; }
         public Nullable<System.DateTime> Ngay { get; set; }
-        public string TenSanPham { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<AlbumAnh> AlbumAnhs { get; set; }

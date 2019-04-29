@@ -12,7 +12,7 @@ namespace WebBanSach.Controllers
         ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         public ActionResult Index()
         {
-            List<SanPham> lstSachMoi = db.SanPhams.Where(item => item.Ngay == new DateTime(2019, 04, 02)).ToList();
+            List<SanPham> lstSachMoi = db.SanPhams.ToList();
             List<SanPham> lstSachNoiBat = db.SanPhams.ToList();
 
             ViewBag.ListSachMoi = lstSachMoi;

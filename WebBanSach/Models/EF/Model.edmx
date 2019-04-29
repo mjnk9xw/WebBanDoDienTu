@@ -72,13 +72,12 @@
           </Key>
           <Property Name="SanPhamID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="TheLoaiID" Type="int" />
-          <Property Name="Mota" Type="nvarchar(max)" />
+          <Property Name="TenSanPham" Type="nvarchar(max)" />
           <Property Name="Gia" Type="int" />
           <Property Name="SoLuong" Type="int" />
           <Property Name="AnhDaiDien" Type="nvarchar" MaxLength="100" />
           <Property Name="NSXID" Type="int" />
           <Property Name="Ngay" Type="smalldatetime" />
-          <Property Name="TenSanPham" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -315,13 +314,12 @@
           </Key>
           <Property Name="SanPhamID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="TheLoaiID" Type="Int32" />
-          <Property Name="Mota" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="TenSanPham" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <Property Name="Gia" Type="Int32" />
           <Property Name="SoLuong" Type="Int32" />
           <Property Name="AnhDaiDien" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="NSXID" Type="Int32" />
           <Property Name="Ngay" Type="DateTime" Precision="0" />
-          <Property Name="TenSanPham" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="AlbumAnhs" Relationship="Self.FK_Image_SanPham" FromRole="SanPham" ToRole="AlbumAnh" />
           <NavigationProperty Name="ChiTietHoaDons" Relationship="Self.FK_ChiTietHoaDon_SanPham" FromRole="SanPham" ToRole="ChiTietHoaDon" />
           <NavigationProperty Name="NSX" Relationship="Self.FK_SanPham_NSX" FromRole="SanPham" ToRole="NSX" />
@@ -572,13 +570,12 @@
               <MappingFragment StoreEntitySet="SanPham">
                 <ScalarProperty Name="SanPhamID" ColumnName="SanPhamID" />
                 <ScalarProperty Name="TheLoaiID" ColumnName="TheLoaiID" />
-                <ScalarProperty Name="Mota" ColumnName="Mota" />
+                <ScalarProperty Name="TenSanPham" ColumnName="TenSanPham" />
                 <ScalarProperty Name="Gia" ColumnName="Gia" />
                 <ScalarProperty Name="SoLuong" ColumnName="SoLuong" />
                 <ScalarProperty Name="AnhDaiDien" ColumnName="AnhDaiDien" />
                 <ScalarProperty Name="NSXID" ColumnName="NSXID" />
                 <ScalarProperty Name="Ngay" ColumnName="Ngay" />
-                <ScalarProperty Name="TenSanPham" ColumnName="TenSanPham" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
