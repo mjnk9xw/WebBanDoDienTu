@@ -24,7 +24,7 @@
                                     <div class="more-views" style="float:left;">
                                     </div>
                                     <div class="product-image">
-                                        <a class="" href="#" title="Women Shorts" alt="Women Shorts">
+                                        <a class="" href="#" title="BOOK STORE ONLINE" alt="Women Shorts">
                                             <img src="~/Assets/images/@Model.Hinhminhhoa" alt="Women Shorts" title="@Model.Tensach" />
                                         </a>
                                     </div>
@@ -37,7 +37,7 @@
                     <div class="span1_of_1_des">
                         <div class="desc1">
                             <div>
-                                <h3 style="font-weight: 700;">@Model.Tensach</h3>
+                                <h5 style="font-weight: 800;">@Model.Tensach</h5>
                                 <p>@Model.Motangangon</p>
                             </div>
                             <div style="display: flex;">
@@ -59,7 +59,7 @@
                             <hr />
                             <div style="display: flex;">
                                 <div style="width: 50%; display: flex; justify-content: flex-start;">
-                                    <span>Giá thị trường</span>
+                                    <p>Giá thị trường</p>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
                                     <strong style="text-decoration: line-through; font-size: 14px; color: #888; font-weight: 550;">@(Model.Dongia + "đ")</strong>
@@ -75,7 +75,7 @@
                             </div>
                             <div style="display: flex;">
                                 <div style="width: 50%; display: flex; justify-content: flex-start;">
-                                    <span>Tiết kiệm</span>
+                                    <p>Tiết kiệm</p>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
                                     <strong style="font-size: 18px; font-weight: 550;">@(Model.Giakm == null ? 0 + "đ" : (Model.Dongia - Model.Giakm) + "đ")</strong>
@@ -83,7 +83,7 @@
                             </div>
                             <div style="display: flex;">
                                 <div style="width: 50%; display: flex; justify-content: flex-start;">
-                                    <span>Tình trạng</span>
+                                    <p>Tình trạng</p>
                                 </div>
                                 <div style="width: 50%; display: flex; justify-content: flex-end;">
                                     <em style="font-size: 14px; color: #f15c22; font-style: italic;">@(Model.Soluong > 0 ? "Còn hàng" : "Hết hàng")</em>
@@ -93,7 +93,7 @@
                             <!-- <h5>Rs. 399 <a href="#">click for offer</a></h5> -->
                             <div class="available" style="border-top: none;">
                                 <div style="display: flex;">
-                                    <div style="width: 75px;">Số lượng:</div>
+                                    <div style="width: 80px;">Số lượng:</div>
                                     <form class="form">
                                         <div class="form-group">
                                             <div class="btn-group">
@@ -149,12 +149,9 @@
                             </div>
                             <div class="content-2">
                                 <p class="para">
-                                    <span>WELCOME </span> Contrary to popular belief, Lorem Ipsum is not simply random
-                                    text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years
-                                    old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of
-                                    the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites
-                                    of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from
-                                    sections
+                                    <span>WELCOME </span> Chào mừng đến với hệ thống cửa hàng sách online lớn nhất Việt Nam, được thành lập
+                                    từ năm 2019 với đa dạng thể loại sách, phụ kiện sách đi kèm.(BOOK STORE ONLINE), phát triển bởi thành viên
+                                    thực tập nhóm.
                                 </p>
                                 <ul class="qua_nav">
                                     <li>Multimedia Systems</li>
@@ -183,7 +180,7 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Sản phẩm đã được thêm vào giỏ hàng</h5>
+                    <h4 class="modal-title">Sản phẩm đã được thêm vào giỏ hàng</h4>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
