@@ -151,6 +151,7 @@
     <Compile Include="Areas\AdminSite\Controllers\AdminDangNhapController.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminQuanLyKhachHangController.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminQuanLySachController.cs" />
+    <Compile Include="Areas\AdminSite\Controllers\AdminQuanLySanPhamController.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminTrangChuController.cs" />
     <Compile Include="Controllers\ChiTietController.cs" />
     <Compile Include="Controllers\DangKiController.cs" />
@@ -3538,6 +3539,8 @@
     <Content Include="Models\EF\Model.edmx.diagram">
       <DependentUpon>Model.edmx</DependentUpon>
     </Content>
+    <Content Include="Areas\AdminSite\Views\AdminQuanLySanPham\TatCaSanPham.cshtml" />
+    <Content Include="Areas\AdminSite\Views\AdminQuanLySanPham\ThemSanPham.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

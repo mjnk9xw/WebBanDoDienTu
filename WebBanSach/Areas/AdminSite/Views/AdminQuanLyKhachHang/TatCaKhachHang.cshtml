@@ -4,7 +4,7 @@
     Layout = "~/Areas/AdminSite/Views/Shared/AdminLayout.cshtml";
 }
 @using WebBanSach.Models.EF
-@model IEnumerable<Khachhang>
+@model IEnumerable<KhachHang>
 @using PagedList.Mvc;
 <div class="container">
     <div class="row">
@@ -35,18 +35,18 @@
                             <th>Xóa</th>*@
                             </thead>
                             <tbody>
-                                @foreach (var kh in (@Model as IEnumerable<Khachhang>))
+                                @foreach (var kh in (@Model as IEnumerable<KhachHang>))
                                 {
-                                    var gioitinh = @kh.Gioitinh == true ? "Nữ" : "Nam";
+                                    var gioitinh = @kh.GioiTinh == true ? "Nữ" : "Nam";
                                     var quyen = @kh.Quyen == 1 ? "Admin" : "Khách hàng";
                                 <tr>
-                                    <td>@kh.Hotenkh</td>
+                                    <td>@kh.TenKhachHang</td>
                                     <td>@kh.Email</td>
-                                    <td>@Convert.ToDateTime(@kh.Ngaysinh).ToShortDateString()</td>
+                                    <td>@Convert.ToDateTime(@kh.NgaySinh).ToShortDateString()</td>
                                     <td>@gioitinh</td>
-                                    <td>@kh.Dienthoaikh</td>
-                                    <td>@kh.Diachikh</td>
-                                    <td>@quyen</td>
+                                    <td>@kh.SDT</td>
+                                    <td>@kh.DiaChi</td>
+                                    <td>@kh.Quyen</td>
                                     @*<td><p data-placement="top" data-toggle="tooltip" title="Edit"><a href="addUser.html"><button class="btn btn-primary btn-xs" data-title="Edit" data-toggle="modal" data-target="#edit"><span class="fa fa-edit"></span></button></a></p></td>
                                     <td>
                                         <p data-placement="top" data-toggle="tooltip" title="Delete">

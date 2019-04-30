@@ -1,0 +1,130 @@
+﻿
+@{
+    ViewBag.Title = "ThemSanPham";
+    Layout = "~/Areas/AdminSite/Views/Shared/AdminLayout.cshtml";
+}
+@using WebBanSach.Models.EF
+@model SanPham
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-header">
+                    <h3>Thêm sản phẩm</h3>
+                </div>
+                <div class="card-body card-block">
+                    <form action="@Url.Action("ThemSanPham", "AdminQuanLySanPham")" onsubmit="return validateForm()" method="post" enctype="multipart/form-data" class="form-horizontal" id="FormAdd">
+                        @Html.ValidationSummary(true)
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sản phẩm(*)</label></div>
+                            <div class="col-12 col-md-7"><input type="text" name="Tensach" id="Tensach" placeholder="Tên sách" class="form-control"></div>
+                            <div class="col-md-2 error">@Html.ValidationMessageFor(m => m.TenSanPham, "", new { @class = "text-danger" })</div>
+                        </div>
+                        
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Thể Loại sản phẩm(*)</label></div>
+                            <div class="col-12 col-md-4">
+                                <select name="Macd" id="selectLg" class="form-control">
+                                    @foreach (var theloai in (ViewBag.TatCaTheLoai as IEnumerable<TheLoai>))
+                                    {
+                                        <option value="@theloai.TheLoaiID">@theloai.TenLoai</option>
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="NXB" class=" form-control-label">Nhà sản xuất(*)</label></div>
+                            <div class="col-12 col-md-4">
+                                <select name="Manxb" id="selectLg" class="form-control">
+                                    @foreach (var nsx in (ViewBag.TatCaNXB as IEnumerable<NSX>))
+                                    {
+                                        <option value="@nsx.NSXID">@nsx.TenNSX</option>
+
+                                    }
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá(*)</label></div>
+                            <div class="col-12 col-md-4"><input type="number" id="Dongia" name="Dongia" min="0" placeholder="nhập giá" class="form-control"></div>
+                            <div class="col-md-1">VNĐ</div>
+                            <div class="col-md-2 error">@Html.ValidationMessageFor(m => m.Gia, "", new { @class = "text-danger" })</div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giảm giá</label></div>
+                            <div class="col-12 col-md-4"><input type="number" id="text-input" name="Giakm" min="0" placeholder="nhập giảm giá" class="form-control"></div>
+                            <div class="col-md-3">VNĐ</div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Số lượng(*)</label></div>
+                            <div class="col-12 col-md-4"><input type="number" id="Soluong" name="Soluong" placeholder="nhập số lượng" min="0" class="form-control"></div>
+                            <div class="col-md-1">quyển</div>
+                            <div class="col-md-4 error">@Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })</div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
+                            <div class="col-12 col-md-7">
+                                <textarea id="textarea-input" rows="9" class="form-control" placeholder="Mô tả" name="Mota"></textarea>
+                            </div>
+                        </div>
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả ngắn gọn</label></div>
+                            <div class="col-12 col-md-7">
+                                <textarea id="textarea-input" rows="2" class="form-control" placeholder="Mô tả ngắn gọn" name="Motangangon"></textarea>
+                            </div>
+                        </div>
+                        <div class="page-header" style="padding: 0 0 0 0;">
+                            <h3>Ảnh minh họa</h3>
+                            <hr>
+                            <img class="img-thumbnail" src="~/Assets/images/Ecap E2.jpg" alt="" id="displayImg">
+                        </div>
+                        <fieldset class="form-group">
+                            <input type="file" class="form-control-file" id="image" name="Hinhminhhoa" onchange="onFileSelected(event)">
+                        </fieldset>
+                        <button type="submit" class="btn btn-primary btn-sm">
+                            <i class="fa fa-dot-circle-o"></i> Thêm
+                        </button>
+                        <button type="reset" class="btn btn-danger btn-sm" onclick="btnCancel()">
+                            <i class="fa fa-ban"></i> Hủy
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    //lấy ảnh từ máy hiển thị lên web
+    const onFileSelected = (event) => {
+        var selectedFile = event.target.files[0];
+        var reader = new FileReader();
+
+        var imgtag = document.getElementById("displayImg");
+        imgtag.title = selectedFile.name;
+
+        reader.onload = function (event) {
+            imgtag.src = event.target.result;
+        };
+        reader.readAsDataURL(selectedFile);
+    }
+    // lấy lại ảnh mặc định khi bấm nút hủy
+    const btnCancel = () => {
+        document.getElementById('displayImg').src = 'http://placehold.it/400x400';
+    }
+    // validate dữ liệu trước khi submit
+    const validateForm = () => {
+        if (document.getElementById('TenSanPham').value == "") {
+            alert("Bạn phải nhập tên sản phẩm");
+            return false;
+        }
+        if (document.getElementById('Gia').value == "") {
+            alert("Phải nhập giá sản phẩm");
+            return false;
+        }
+        if (document.getElementById('Soluong').value == "") {
+            alert("Bạn phải nhập số lượng");
+            return false;
+        }
+    }
+</script>
