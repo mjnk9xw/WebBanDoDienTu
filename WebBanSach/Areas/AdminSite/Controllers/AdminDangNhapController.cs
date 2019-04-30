@@ -26,7 +26,7 @@ namespace WebBanSach.Areas.AdminSite.Controllers
                 if (khachang != null && khachang.Quyen == 1)
                 {
                     Session.Add("ADMIN_SESSION", khachang);
-                    return RedirectToAction("TatCaSach", "AdminQuanLySach");
+                    return RedirectToAction("TatCaSanPham", "AdminQuanLySanPham");
                 }
             }
             return RedirectToAction("Index");
