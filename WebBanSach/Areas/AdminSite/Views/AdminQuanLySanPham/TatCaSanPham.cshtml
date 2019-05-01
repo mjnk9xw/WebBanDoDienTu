@@ -1,7 +1,7 @@
 ﻿
 
 @{
-    ViewBag.Title = "TatCaSach";
+    ViewBag.Title = "TatCaSanPham";
     Layout = "~/Areas/AdminSite/Views/Shared/AdminLayout.cshtml";
 }
 @using WebBanSach.Models.EF
@@ -12,7 +12,7 @@
             <div class="row">
                 <div class="card-header col-sm-11">
                     <form class="form-inline my-2 my-lg-0 " method="post" action="@Url.Action("TimKiem","AdminQuanLySanPham")">
-                        <input class="form-control mr-sm-2 col-sm-2" name="TenSach" type="text" placeholder="Tên sách">
+                        <input class="form-control mr-sm-2 col-sm-2" name="TenSach" type="text" placeholder="Tên sản phẩm">
                         @*<div class="form-group col-sm-2">
                                 <select class="form-control col-sm-12">
                                     <option>Loại sách</option>

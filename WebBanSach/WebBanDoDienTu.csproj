@@ -150,7 +150,6 @@
     <Compile Include="Areas\AdminSite\AdminSiteAreaRegistration.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminDangNhapController.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminQuanLyKhachHangController.cs" />
-    <Compile Include="Areas\AdminSite\Controllers\AdminQuanLySachController.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminQuanLySanPhamController.cs" />
     <Compile Include="Areas\AdminSite\Controllers\AdminTrangChuController.cs" />
     <Compile Include="Controllers\ChiTietController.cs" />
@@ -3528,9 +3527,6 @@
     <Content Include="Areas\AdminSite\Views\AdminQuanLyKhachHang\TatCaKhachHang.cshtml" />
     <Content Include="Areas\AdminSite\Views\AdminQuanLyKhachHang\ThemKhachHang.cshtml" />
     <Content Include="Areas\AdminSite\Views\AdminQuanLyKhachHang\SuaKhachHang.cshtml" />
-    <Content Include="Areas\AdminSite\Views\AdminQuanLySach\TatCaSach.cshtml" />
-    <Content Include="Areas\AdminSite\Views\AdminQuanLySach\ThemSach.cshtml" />
-    <Content Include="Areas\AdminSite\Views\AdminQuanLySach\SuaSach.cshtml" />
     <Content Include="Areas\AdminSite\Views\AdminTrangChu\Index.cshtml" />
     <EntityDeploy Include="Models\EF\Model.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
@@ -3541,6 +3537,7 @@
     </Content>
     <Content Include="Areas\AdminSite\Views\AdminQuanLySanPham\TatCaSanPham.cshtml" />
     <Content Include="Areas\AdminSite\Views\AdminQuanLySanPham\ThemSanPham.cshtml" />
+    <Content Include="Areas\AdminSite\Views\AdminQuanLySanPham\SuaSanPham.cshtml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />

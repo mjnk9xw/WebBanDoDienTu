@@ -17,7 +17,7 @@
                         @Html.ValidationSummary(true)
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sản phẩm(*)</label></div>
-                            <div class="col-12 col-md-7"><input type="text" name="Tensach" id="Tensach" placeholder="Tên sách" class="form-control"></div>
+                            <div class="col-12 col-md-7"><input type="text" name="Tensach" id="Tensach" placeholder="Tên sản phẩm" class="form-control"></div>
                             <div class="col-md-2 error">@Html.ValidationMessageFor(m => m.TenSanPham, "", new { @class = "text-danger" })</div>
                         </div>
                         
@@ -36,7 +36,7 @@
                             <div class="col col-md-3"><label for="NXB" class=" form-control-label">Nhà sản xuất(*)</label></div>
                             <div class="col-12 col-md-4">
                                 <select name="Manxb" id="selectLg" class="form-control">
-                                    @foreach (var nsx in (ViewBag.TatCaNXB as IEnumerable<NSX>))
+                                    @foreach (var nsx in (ViewBag.TatCaNSX as IEnumerable<NSX>))
                                     {
                                         <option value="@nsx.NSXID">@nsx.TenNSX</option>
 
@@ -58,21 +58,10 @@
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Số lượng(*)</label></div>
                             <div class="col-12 col-md-4"><input type="number" id="Soluong" name="Soluong" placeholder="nhập số lượng" min="0" class="form-control"></div>
-                            <div class="col-md-1">quyển</div>
+                            <div class="col-md-1">chiếc</div>
                             <div class="col-md-4 error">@Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })</div>
                         </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                            <div class="col-12 col-md-7">
-                                <textarea id="textarea-input" rows="9" class="form-control" placeholder="Mô tả" name="Mota"></textarea>
-                            </div>
-                        </div>
-                        <div class="row form-group">
-                            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả ngắn gọn</label></div>
-                            <div class="col-12 col-md-7">
-                                <textarea id="textarea-input" rows="2" class="form-control" placeholder="Mô tả ngắn gọn" name="Motangangon"></textarea>
-                            </div>
-                        </div>
+                        
                         <div class="page-header" style="padding: 0 0 0 0;">
                             <h3>Ảnh minh họa</h3>
                             <hr>
