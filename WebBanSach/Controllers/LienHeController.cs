@@ -10,7 +10,7 @@ namespace WebBanSach.Controllers
     public class LienHeController : Controller
     {
         // GET: LienHe
-        private QuanLyBanSachDbContext db = new QuanLyBanSachDbContext();
+        private ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         public ActionResult Index()
         {
             return View();

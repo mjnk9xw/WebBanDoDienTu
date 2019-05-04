@@ -5,7 +5,7 @@
 }
 
 @using WebBanSach.Models.EF
-@model IEnumerable<Sach>
+@model IEnumerable<SanPham>
 
 <!-- start main -->
 <div class="main_bg">
@@ -14,27 +14,29 @@
             <!-- start gallery_sale  -->
             <div class="gallery1">
                 <div class="container">
-                    <ul id="filters" class="clearfix">
-                        @{
-                            var lstDanhMuc = ViewBag.ListDanhMuc as IEnumerable<Chude>;
-                            foreach (var item in lstDanhMuc)
-                            {
-                                <li><span class="filter" data-filter="@item.Key">@item.Tenchude</span></li>
+                    <div style="background-color:azure">
+                        <ul id="filters" class="clearfix">
+                            @{
+                                var lstDanhMuc = ViewBag.ListDanhMuc as IEnumerable<TheLoai>;
+                                foreach (var item in lstDanhMuc)
+                                {
+                                    <li><span class="filter" data-filter="@item.Key">@item.TenLoai</span></li>
+                                }
                             }
-                        }
-                    </ul>
+                        </ul>
+                    </div>
                     <div id="portfoliolist">
-                        @foreach (Sach item in Model)
+                        @foreach (SanPham item in Model)
                         {
-                            var @giacu = @item.Dongia != null ? item.Dongia.ToString() + "đ" : "";
-                            var @giamoi = @item.Giakm != null ? item.Giakm.ToString() + "đ" : "";
-                            <div class="portfolio @item.Chude.Key" style="height: 490px;" data-cat="@item.Chude.Key">
-                                <div class="portfolio-wrapper" title="@item.Tensach">
-                                    <a href="/ChiTietSach/Index?ID=@item.Masach">
-                                        <img src="~/Assets/images/books/@item.Hinhminhhoa"style="width: 240px; height: 360px;" alt="Image 2" />
+                            var @giacu = @item.Gia != null ? item.Gia.ToString() + "đ" : "";
+                            var @giamoi = @item.GiaKM != null ? item.GiaKM.ToString() + "đ" : "";
+                            <div class="portfolio @item.TheLoai.Key" style="height: 490px;" data-cat="@item.TheLoai.Key">
+                                <div class="portfolio-wrapper" title="@item.TenSanPham">
+                                    <a href="/ChiTiet/Index?ID=@item.SanPhamID">
+                                        <img src="~/Assets/images/@item.AnhDaiDien"style="width: 240px; height: 360px;" alt="Image 2" />
                                     </a>
                                     <div class="price" style="text-align: center;">
-                                        <h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-height: 27px;">@item.Tensach</h3>
+                                        <h3 style="overflow: hidden; text-overflow: ellipsis; white-space: nowrap; max-height: 27px;">@item.TenSanPham</h3>
                                         <h4 style="display: flex; align-items: center;">
                                             @if (@giamoi != "")
                                             {

@@ -35,35 +35,35 @@
                 <tbody>
                     @foreach (CartItem item in Model)
                     {
-                        <tr id="row-item-@item.Product.Masach">
+                        <tr id="row-item-@item.Product.SanPhamID">
                             <td>
                                 <form action="#" class="form">
                                     <div class="checkbox">
-                                        <input type="checkbox" class="checkboxItem" id="item-@item.Product.Masach" onclick="onClickSelectItem('item-@item.Product.Masach')"/>
+                                        <input type="checkbox" class="checkboxItem" id="item-@item.Product.SanPhamID" onclick="onClickSelectItem('item-@item.Product.SanPhamID')"/>
                                     </div>
                                 </form>
                             </td>
                             <td class="col-content-img">
                                 <div>
-                                    <img src="~/Assets/images/@item.Product.Hinhminhhoa" alt="images">
+                                    <img src="~/Assets/images/@item.Product.AnhDaiDien" alt="images">
                                 </div>
                             </td>
                             <td class="col-content-title">
                                 <div>
-                                    <div class="title">@item.Product.Tensach</div>
+                                    <div class="title">@item.Product.TenSanPham</div>
                                     <div>
-                                        <div class="author">Tác giả : <span style="color: #0066c0;">@item.Product.Tacgia.Tentacgia</span></div>
-                                        <div class="author">Thể loại : <span>@item.Product.Chude.Tenchude</span></div>
+                                        <div class="author">Nhà sản xuất : <span style="color: #0066c0;">@item.Product.NSX.TenNSX</span></div>
+                                        <div class="author">Thể loại : <span>@item.Product.TheLoai.TenLoai</span></div>
                                         <div>
-                                            <a href="#" onclick="onRemoveItem(@item.Product.Masach)">Xóa</a> | <a href="#">Thêm vào yêu thích</a>
+                                            <a href="#" onclick="onRemoveItem(@item.Product.SanPhamID)">Xóa</a> | <a href="#">Thêm vào yêu thích</a>
                                         </div>
                                     </div>
                                 </div>
                             </td>
                             <td class="col-content-price">
                                 <div>
-                                    <span class="product-price">@((item.Product.Giakm != null ? item.Product.Giakm : item.Product.Dongia).ToString() + " đ")</span>
-                                    <span class="saving">Tiết kiệm @((item.Product.Giakm != null ? item.Product.Dongia - item.Product.Giakm : 0).ToString() + " đ")</span>
+                                    <span class="product-price">@((item.Product.GiaKM != null ? item.Product.GiaKM : item.Product.Gia).ToString() + " đ")</span>
+                                    <span class="saving">Tiết kiệm @((item.Product.GiaKM != null ? item.Product.Gia - item.Product.GiaKM : 0).ToString() + " đ")</span>
                                 </div>
                             </td>
                             <td class="col-content-quantity">
@@ -85,8 +85,8 @@
 
                     foreach (CartItem item in Model)
                     {
-                        var donGia = item.Product.Giakm != null ? item.Product.Giakm : item.Product.Dongia;
-                        var tienTietKiem = item.Product.Giakm != null ? item.Product.Dongia - item.Product.Giakm : 0;
+                        var donGia = item.Product.GiaKM != null ? item.Product.GiaKM : item.Product.Gia;
+                        var tienTietKiem = item.Product.GiaKM != null ? item.Product.Gia - item.Product.GiaKM : 0;
                         tongTien += (decimal)donGia * item.Quantity;
                         tietKiem += (decimal)tienTietKiem * item.Quantity;
                         tongSoLuong += item.Quantity;
@@ -124,7 +124,7 @@
                 </div>
             </div>
             <div class="more-product">
-                @{ Html.RenderAction("SachLienQuan", "DanhMuc"); }
+                @{ Html.RenderAction("SanPhamLienQuan", "DanhMuc"); }
             </div>
         </div>
     }

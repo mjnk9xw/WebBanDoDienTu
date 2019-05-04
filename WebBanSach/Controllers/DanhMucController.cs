@@ -8,22 +8,22 @@ namespace WebBanSach.Controllers
 {
     public class DanhMucController : Controller
     {
-        QuanLyBanSachDbContext db = new QuanLyBanSachDbContext();
+        ThucTap_NhomEntities db = new ThucTap_NhomEntities();
         // GET: DanhMuc
         public ActionResult Index()
         {
-            var lstDanhMuc = db.Chudes.ToList();
-            var lstSach = db.Saches.ToList();
+            var lstDanhMuc = db.TheLoais.ToList();
+            var lstSanPham = db.SanPhams.ToList();
 
             ViewBag.ListDanhMuc = lstDanhMuc;
-            return View(lstSach);
+            return View(lstSanPham);
         }
 
         [ChildActionOnly]
-        public ActionResult SachLienQuan()
+        public ActionResult SanPhamLienQuan()
         {
-            var listSachLienQuan = db.Saches.Where(item => item.Ngaycapnhat == new DateTime(2019, 04, 03)).Take(5).ToList();
-            return PartialView("~/Views/Shared/_SanPhamLienQuan.cshtml", listSachLienQuan);
+            var listSanPhamLienQuan = db.SanPhams.Where(item => item.Ngay == new DateTime(2019, 04, 03)).Take(5).ToList();
+            return PartialView("~/Views/Shared/_SanPhamLienQuan.cshtml", listSanPhamLienQuan);
         }
     }
 }
