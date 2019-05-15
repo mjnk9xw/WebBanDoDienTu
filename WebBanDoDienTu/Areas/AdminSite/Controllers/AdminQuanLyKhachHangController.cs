@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebBanDoDienTu.Models.Common;
-using WebBanDoDienTu.Models.EF;
 using PagedList;
+using WebBanDoDienTu.Models.EF;
+using WebBanDoDienTu.Models.Common;
 
 namespace WebBanDoDienTu.Areas.AdminSite.Controllers
 {

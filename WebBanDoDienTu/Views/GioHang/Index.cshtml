@@ -102,7 +102,10 @@
 
                 <td>
                     <div>
-                        <button type="button" class="btn btn-success" style="font-size: 14px;"><i class="fa fa-shopping-cart"></i>Thanh toán</button>
+                        @using (Html.BeginForm("ThanhToan", "GioHang", FormMethod.Post))
+                        {
+                            <button type="submit" class="btn btn-success" style="font-size: 14px;"><i class="fa fa-shopping-cart"></i>Thanh toán</button>
+                        }
                     </div>
                 </td>
                 </tfoot>
@@ -117,11 +120,14 @@
                         <span style="font-size: 14px;">( Chưa có cước vận chuyển )</span>
                     </div>
                 }
-                <div class="payment">
-                    <button type="button" class="btn btn-success">
-                        <i class="fa fa-shopping-cart"></i>Thanh toán
-                    </button>
-                </div>
+                    <div class="payment">
+                        @using (Html.BeginForm("ThanhToan", "GioHang", FormMethod.Post))
+                        {
+                            <button type="submit" class="btn btn-success">
+                                <i class="fa fa-shopping-cart"></i> Thanh toán
+                            </button>
+                        }
+                    </div>
             </div>
             <div class="more-product">
                 @{ Html.RenderAction("SanPhamLienQuan", "DanhMuc"); }

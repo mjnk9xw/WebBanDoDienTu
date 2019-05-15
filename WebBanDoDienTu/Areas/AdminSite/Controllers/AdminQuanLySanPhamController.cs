@@ -4,11 +4,11 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebBanSach.Models.Common;
-using WebBanSach.Models.EF;
+using WebBanDoDienTu.Models.Common;
+using WebBanDoDienTu.Models.EF;
 
 
-namespace WebBanSach.Areas.AdminSite.Controllers
+namespace WebBanDoDienTu.Areas.AdminSite.Controllers
 {
     public class AdminQuanLySanPhamController : Controller
     {
