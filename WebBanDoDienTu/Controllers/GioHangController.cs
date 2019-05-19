@@ -68,7 +68,14 @@ namespace WebBanDoDienTu.Controllers
                 List<int> tempList = new List<int>();
                 foreach (var item in lstItemInCart)
                 {
-                    tongtien += ((int)item.Product.Gia - (int)item.Product.GiaKM) * (int)item.Quantity;
+                    if((int)item.Product.GiaKM == 0)
+                    {
+                        tongtien += ((int)item.Product.Gia * (int)item.Quantity);
+                    } else
+                    {
+                        tongtien += ((int)item.Product.GiaKM * (int)item.Quantity);
+                    }
+                    // tongtien += ((int)item.Product.Gia - (int)item.Product.GiaKM) * (int)item.Quantity;
                     tempList.Add(item.Product.SanPhamID);
                 }
 
@@ -83,7 +90,15 @@ namespace WebBanDoDienTu.Controllers
                     ct_hd.HoaDonID = hd_add.HoaDonID;
                     ct_hd.SanPhamID = (int)item.Product.SanPhamID;
                     ct_hd.SoLuong = (int)item.Quantity;
-                    ct_hd.ThanhTien = ((int)item.Product.Gia - (int)item.Product.GiaKM) * (int)item.Quantity;
+                    if ((int)item.Product.GiaKM == 0)
+                    {
+                        ct_hd.ThanhTien = ((int)item.Product.Gia * (int)item.Quantity);
+                    }
+                    else
+                    {
+                        ct_hd.ThanhTien = ((int)item.Product.GiaKM * (int)item.Quantity);
+                    }
+                    // ct_hd.ThanhTien = ((int)item.Product.Gia - (int)item.Product.GiaKM) * (int)item.Quantity;
                     db.ChiTietHoaDons.Add(ct_hd);
                 }
                 db.SaveChanges();

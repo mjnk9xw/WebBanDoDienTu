@@ -63,7 +63,7 @@
                             <td class="col-content-price">
                                 <div>
                                     <span class="product-price">@((item.Product.GiaKM != null ? item.Product.GiaKM : item.Product.Gia).ToString() + " đ")</span>
-                                    <span class="saving">Tiết kiệm @((item.Product.GiaKM != null ? item.Product.Gia - item.Product.GiaKM : 0).ToString() + " đ")</span>
+                                    <span class="saving">Tiết kiệm @((item.Product.GiaKM == null ? 0 : item.Product.Gia - item.Product.GiaKM).ToString() + " đ")</span>
                                 </div>
                             </td>
                             <td class="col-content-quantity">

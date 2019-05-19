@@ -92,7 +92,7 @@
                             }
                             var @item = Model.ToList()[3 * i + j];
                             var @giacu = item.Gia != null ? item.Gia.ToString() + "đ" : "";
-                            var @giamoi = item.Gia != null ? item.Gia.ToString() + "đ" : "";
+                            var @giamoi = item.GiaKM != null ? item.GiaKM.ToString() + "đ" : "";
                             <div class="grid1_of_3">
                                 <a href="/ChiTiet/Index?ID=@item.SanPhamID">
                                     <img src="~/Assets/images/@item.AnhDaiDien" alt="" style="width: 170px; height: 250px;" />
