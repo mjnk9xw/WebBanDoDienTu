@@ -157,45 +157,17 @@
     <Compile Include="Models\Common\CartItem.cs" />
     <Compile Include="Models\Common\HasCredentialAttribute.cs" />
     <Compile Include="Models\Common\UserLogin.cs" />
-    <Compile Include="Models\EF\AlbumAnh.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\ChiTietHoaDon.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\HoaDon.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\KhachHang.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\LienHe.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\Model.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\Model.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\Model.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\NSX.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\SanPham.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\EF\TheLoai.cs">
-      <DependentUpon>Model.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Models\EF\AlbumAnh.cs" />
+    <Compile Include="Models\EF\ChiTietHoaDon.cs" />
+    <Compile Include="Models\EF\HoaDon.cs" />
+    <Compile Include="Models\EF\KhachHang.cs" />
+    <Compile Include="Models\EF\LienHe.cs" />
+    <Compile Include="Models\EF\NSX.cs" />
+    <Compile Include="Models\EF\SanPham.cs" />
+    <Compile Include="Models\EF\sysdiagram.cs" />
+    <Compile Include="Models\EF\TheLoai.cs" />
+    <Compile Include="Models\EF\ThucTap_NhomEntities.cs" />
+    <Compile Include="Models\Security\HashPass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -2928,16 +2900,6 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\EF\Model.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Models\EF\Model.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
-    </Content>
     <Content Include="Assets\fonts\Amble-Regular-webfont.ttf" />
     <Content Include="Assets\fonts\BebasNeue-webfont.ttf" />
     <Content Include="Assets\vendor\bootstrap\js\bootstrap.bundle.js.map" />
@@ -3523,13 +3485,6 @@
     <Content Include="Areas\AdminSite\Views\AdminQuanLyKhachHang\ThemKhachHang.cshtml" />
     <Content Include="Areas\AdminSite\Views\AdminQuanLyKhachHang\SuaKhachHang.cshtml" />
     <Content Include="Areas\AdminSite\Views\AdminTrangChu\Index.cshtml" />
-    <EntityDeploy Include="Models\EF\Model.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\EF\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
-    </Content>
     <Content Include="Scripts\bootstrap.min.js.map" />
     <Content Include="Scripts\bootstrap.js.map" />
     <Content Include="Scripts\bootstrap.bundle.min.js.map" />

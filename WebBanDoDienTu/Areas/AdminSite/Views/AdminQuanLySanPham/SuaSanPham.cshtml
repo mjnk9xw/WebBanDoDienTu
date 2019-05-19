@@ -11,45 +11,24 @@
         <div class="col-lg-12">
             <div class="card">
                 <div class="card-header">
-                    <h3>Thêm sách</h3>
+                    <h3>Sửa sản phẩm</h3>
                 </div>
                 <div class="card-body card-block">
                     <form action="@Url.Action("SuaSanPham", "AdminQuanLySanPham")" onsubmit="return validateForm()" method="post" enctype="multipart/form-data" class="form-horizontal" id="FormAdd">
                         @Html.ValidationSummary(true)
                         <div class="row form-group">
-                            <div><input type="text" hidden name="Masach" value="@Model.SanPhamID"></div>
+                            <div><input type="text" hidden name="SanPhamID" value="@Model.SanPhamID"></div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sách(*)</label></div>
-                            <div class="col-12 col-md-7"><input type="text" name="Tensach" id="Tensach" placeholder="Tên sách" value="@Model.TenSanPham" class="form-control"></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sản phẩm(*)</label></div>
+                            <div class="col-12 col-md-7"><input type="text" name="TenSanPham" id="TenSanPham" placeholder="Tên sách" value="@Model.TenSanPham" class="form-control"></div>
                             <div class="col-md-2 error">@Html.ValidationMessageFor(m => m.TenSanPham, "", new { @class = "text-danger" })</div>
                         </div>
-                        @*<div class="row form-group">
-            <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Tác giả(*)</label></div>
-            <div class="col-12 col-md-4">
-                <select name="Matacgia" id="selectLg" class="form-control">
-                    @foreach (var tacgia in (ViewBag.TatCaTacGia as IEnumerable<Tacgia>))
-                    {
-
-                        if (@Model.Matacgia == tacgia.Matacgia)
-                        {
-                            <option value="@tacgia.Matacgia" selected>@tacgia.Tentacgia</option>
-                        }
-                        else
-                        {
-                            <option value="@tacgia.Matacgia">@tacgia.Tentacgia</option>
-                        }
-
-                    }
-                </select>
-            </div>
-        </div>
-                        *@
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Thể Loại Sản Phẩm(*)</label></div>
+                            <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Loại sản phẩm(*)</label></div>
                             <div class="col-12 col-md-4">
-                                <select name="Macd" id="selectLg" class="form-control">
-                                    @foreach (var theloai in (ViewBag.TatCaChuDe as IEnumerable<TheLoai>))
+                                <select name="TheLoaiID" id="selectLg" class="form-control">
+                                    @foreach (var theloai in (ViewBag.TatCaTheLoai as IEnumerable<TheLoai>))
                                     {
                                         if (@Model.TheLoaiID == theloai.TheLoaiID)
                                         {
@@ -64,9 +43,9 @@
                             </div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="NXB" class=" form-control-label">Nhà xuất bản(*)</label></div>
+                            <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Nhà sản xuất(*)</label></div>
                             <div class="col-12 col-md-4">
-                                <select name="Manxb" id="selectLg" class="form-control">
+                                <select name="NSXID" id="selectLg" class="form-control">
                                     @foreach (var nsx in (ViewBag.TatCaNSX as IEnumerable<NSX>))
                                     {
                                         if (@Model.NSXID == nsx.NSXID)
@@ -84,13 +63,14 @@
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá(*)</label></div>
-                            <div class="col-12 col-md-4"><input type="number" id="Dongia" name="Dongia" min="0" placeholder="nhập giá" class="form-control" value="@Model.Gia"></div>
+
+                            <div class="col-12 col-md-4"><input type="number" id="text-input" min="0" name="Gia" min="0" placeholder="nhập giá" class="form-control" value="@Model.Gia"></div>
                             <div class="col-md-1">VNĐ</div>
                             <div class="col-md-2 error">@Html.ValidationMessageFor(m => m.Gia, "", new { @class = "text-danger" })</div>
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giảm giá</label></div>
-                            <div class="col-12 col-md-4"><input type="number" id="text-input" value="@Model.GiaKM" name="Giakm" min="0" placeholder="nhập giảm giá" class="form-control"></div>
+                            <div class="col-12 col-md-4"><input type="number" id="text-input" value="@Model.GiaKM" name="GiaKM" min="0" placeholder="nhập giảm giá" class="form-control"></div>
                             <div class="col-md-3">VNĐ</div>
                         </div>
                         <div class="row form-group">
@@ -99,24 +79,11 @@
                             <div class="col-md-1">chiếc</div>
                             <div class="col-md-4 error">@Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })</div>
                         </div>
-                        @*
-              <div class="row form-group">
-                <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả</label></div>
-                <div class="col-12 col-md-7">
-                    <textarea id="textarea-input" rows="9" class="form-control" placeholder="Mô tả" name="Mota">@Model.Mota</textarea>
-                </div>
-            </div>
-
-        <div class="row form-group">
-            <div class="col col-md-3"><label for="textarea-input" class=" form-control-label">Mô tả ngắn gọn</label></div>
-            <div class="col-12 col-md-7">
-                <textarea id="textarea-input" rows="2" class="form-control" placeholder="Mô tả ngắn gọn" name="Motangangon">@Model.Motangangon</textarea>
-            </div>
-        </div>*@
+                       
                         <div class="page-header" style="padding: 0 0 0 0;">
                             <h3>Ảnh minh họa</h3>
                             <hr>
-                            <img class="img-thumbnail" src="~/Assets/images/@Model.AnhDaiDien="displayImg">
+                            <img class="img-thumbnail" src="~/Assets/images/@Model.AnhDaiDien" id="displayImg">
                         </div>
                         <fieldset class="form-group">
                             <input type="file" class="form-control-file" id="image" name="Hinhminhhoa" onchange="onFileSelected(event)">
