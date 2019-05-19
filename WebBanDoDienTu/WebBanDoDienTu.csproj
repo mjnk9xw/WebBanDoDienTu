@@ -167,6 +167,7 @@
     <Compile Include="Models\EF\sysdiagram.cs" />
     <Compile Include="Models\EF\TheLoai.cs" />
     <Compile Include="Models\EF\ThucTap_NhomEntities.cs" />
+    <Compile Include="Models\Security\HashPass.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

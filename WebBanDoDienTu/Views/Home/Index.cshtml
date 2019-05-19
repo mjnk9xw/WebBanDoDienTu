@@ -5,7 +5,6 @@
 }
 @using WebBanDoDienTu.Models.EF
 @model IEnumerable<SanPham>
-
 <!-- start slider -->
 <div id="carouselIndicators" class="carousel slide">
     <ol class="carousel-indicators">
@@ -14,26 +13,21 @@
         <li data-target="#carouselIndicators" data-slide-to="2"></li>
         <li data-target="#carouselIndicators" data-slide-to="3"></li>
     </ol>
-
     <!-- carousel content -->
     <div class="carousel-inner">
         <div class="carousel-item active" style="margin: auto; height: 400px;">
             <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/68af7052-7075-4828-bff5-94327137d13e.png" alt="First slide">
         </div>
-
         <div class="carousel-item" style="margin: auto; height: 400px;">
             <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/329ec368-6113-4e26-88e0-f6f1683e61b.png" alt="Second slide">
         </div>
-
         <div class="carousel-item" style="margin: auto; height: 400px;">
             <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/612829c3-d07b-405f-b023-fbce0a38c4de.png" alt="Third slide">
         </div>
-
         <div class="carousel-item" style="margin: auto; height: 400px;">
             <img class="d-block w-100 img img-responsive" style="height: 400px" src="~/Assets/images/banner/883b8a35-12ee-4a0e-98db-b3d1844c4d80.png" alt="Fourth slide">
         </div>
     </div>
-
     <!-- controls -->
     <a class="carousel-control-prev" href="#carouselIndicators" role="button" data-slide="prev">
         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -45,6 +39,13 @@
     </a>
 </div>
 <!----start-cursual---->
+<div class="main_bg1">
+    <div class="wrap">
+        <div class="main1">
+            <h2>Sản Phẩm Mới</h2>
+        </div>
+    </div>
+</div>
 <div class="wrap">
     <!----start-img-cursual---->
     <div id="owl-demo" class="owl-carousel">
@@ -69,7 +70,7 @@
 <div class="main_bg1">
     <div class="wrap">
         <div class="main1">
-            <h2>Sản Phẩm Mới</h2>
+            <h2>Sản Phẩm</h2>
         </div>
     </div>
 </div>
@@ -83,7 +84,7 @@
                 for (int i = 0; i < rowNumber; i++)
                 {
                     <div class="grids_of_3">
-                        @for(int j = 0; j < 3; j++)
+                        @for (int j = 0; j < 3; j++)
                         {
                             if (3 * i + j >= Model.Count())
                             {
@@ -152,4 +153,3 @@
         })
     </script>
 </div>
-

@@ -17,10 +17,11 @@ namespace WebBanDoDienTu.Areas.AdminSite.Controllers
         [HasCredential(Quyen = 1)]
         public ActionResult TatCaSanPham()
         {
-            var TatCaSanPham = db.SanPhams.Join(db.NSXes, sp => sp.NSXID, nsx => nsx.NSXID, (sp, nsx) => sp)
-                                      .Join(db.TheLoais, sp => sp.TheLoaiID, tl => tl.TheLoaiID, (sp, tl) => sp)
-                                      .OrderByDescending(sp => sp.SanPhamID)
-                                      .ToList();
+            //var TatCaSanPham = db.SanPhams.Join(db.NSXes, sp => sp.NSXID, nsx => nsx.NSXID, (sp, nsx) => sp)
+            //                          .Join(db.TheLoais, sp => sp.TheLoaiID, tl => tl.TheLoaiID, (sp, tl) => sp)
+            //                          .OrderByDescending(sp => sp.SanPhamID)
+            //                          .ToList();
+            var TatCaSanPham = db.SanPhams.ToList();
             return View(TatCaSanPham);
         }
         [HasCredential(Quyen = 1)]
@@ -65,23 +66,15 @@ namespace WebBanDoDienTu.Areas.AdminSite.Controllers
 
         }
         [HasCredential(Quyen = 1)]
-        public ActionResult SuaSanPham(int MaSach)
+        public ActionResult SuaSanPham(int MaSanPham)
         {
             var TatCaTheLoai = db.TheLoais.ToList();
             var TatCaNSX = db.NSXes.ToList();
             ViewBag.TatCaTheLoai = TatCaTheLoai;
-            ViewBag.TatCaNXS = TatCaNSX;
-
-            //var sach = db.Saches.Join(db.Nhaxuatbans, s => s.Manxb, nxb => nxb.Manxb, (s, nxb) => s)
-            //                          .Join(db.Chudes, s => s.Macd, chude => chude.Macd, (s, chude) => s)
-            //                          .Join(db.Tacgias, s => s.Matacgia, tacgia => tacgia.Matacgia, (s, tacgia) => s)
-            //                          .Where(s => s.Masach == MaSach)
-            //                          .First();
-            SanPham sanpham = db.SanPhams.Find(MaSach);
+            ViewBag.TatCaNSX = TatCaNSX;
+            SanPham sanpham = db.SanPhams.Find(MaSanPham);
             sanpham.Gia = sanpham.Gia != null ? sanpham.Gia : 0;
             sanpham.GiaKM = sanpham.GiaKM != null ? sanpham.GiaKM : 0;
-            //sach.Mota = sach.Mota != null ? sach.Mota : "không có mô tả";
-            //sach.Motangangon = sach.Motangangon != null ? sach.Motangangon : "không có mô tả";
             return View(sanpham);
         }
         [HttpPost]
@@ -114,6 +107,7 @@ namespace WebBanDoDienTu.Areas.AdminSite.Controllers
                 SanPham sanpham = db.SanPhams.Find(MaSanPham);
                 db.SanPhams.Remove(sanpham);
                 db.SaveChanges();
+
                 return Json(new { status = true });
             }
             catch (Exception ex)

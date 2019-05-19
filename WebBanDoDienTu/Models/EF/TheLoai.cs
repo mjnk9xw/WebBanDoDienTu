@@ -19,8 +19,6 @@ namespace WebBanDoDienTu.Models.EF
 
         public string TenLoai { get; set; }
 
-        public string Mota { get; set; }
-
         [StringLength(255)]
         public string Key { get; set; }
 

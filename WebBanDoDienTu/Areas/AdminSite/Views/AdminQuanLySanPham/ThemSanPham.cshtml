@@ -17,14 +17,14 @@
                         @Html.ValidationSummary(true)
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Tên sản phẩm(*)</label></div>
-                            <div class="col-12 col-md-7"><input type="text" name="Tensach" id="Tensach" placeholder="Tên sản phẩm" class="form-control"></div>
+                            <div class="col-12 col-md-7"><input type="text" name="TenSanPham" id="TenSanPham" placeholder="Tên sản phẩm" class="form-control"></div>
                             <div class="col-md-2 error">@Html.ValidationMessageFor(m => m.TenSanPham, "", new { @class = "text-danger" })</div>
                         </div>
                         
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="selectLg" class=" form-control-label">Thể Loại sản phẩm(*)</label></div>
                             <div class="col-12 col-md-4">
-                                <select name="Macd" id="selectLg" class="form-control">
+                                <select name="TheLoaiID" id="selectLg" class="form-control">
                                     @foreach (var theloai in (ViewBag.TatCaTheLoai as IEnumerable<TheLoai>))
                                     {
                                         <option value="@theloai.TheLoaiID">@theloai.TenLoai</option>
@@ -33,9 +33,9 @@
                             </div>
                         </div>
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="NXB" class=" form-control-label">Nhà sản xuất(*)</label></div>
+                            <div class="col col-md-3"><label for="NSX" class=" form-control-label">Nhà sản xuất(*)</label></div>
                             <div class="col-12 col-md-4">
-                                <select name="Manxb" id="selectLg" class="form-control">
+                                <select name="NSXID" id="selectLg" class="form-control">
                                     @foreach (var nsx in (ViewBag.TatCaNSX as IEnumerable<NSX>))
                                     {
                                         <option value="@nsx.NSXID">@nsx.TenNSX</option>
@@ -46,18 +46,18 @@
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giá(*)</label></div>
-                            <div class="col-12 col-md-4"><input type="number" id="Dongia" name="Dongia" min="0" placeholder="nhập giá" class="form-control"></div>
+                            <div class="col-12 col-md-4"><input type="number" id="Gia" name="Gia" min="0" placeholder="nhập giá" class="form-control"></div>
                             <div class="col-md-1">VNĐ</div>
                             <div class="col-md-2 error">@Html.ValidationMessageFor(m => m.Gia, "", new { @class = "text-danger" })</div>
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Giảm giá</label></div>
-                            <div class="col-12 col-md-4"><input type="number" id="text-input" name="Giakm" min="0" placeholder="nhập giảm giá" class="form-control"></div>
+                            <div class="col-12 col-md-4"><input type="number" id="GiaKM" name="GiaKM" min="0" placeholder="nhập giảm giá" class="form-control"></div>
                             <div class="col-md-3">VNĐ</div>
                         </div>
                         <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class=" form-control-label">Số lượng(*)</label></div>
-                            <div class="col-12 col-md-4"><input type="number" id="Soluong" name="Soluong" placeholder="nhập số lượng" min="0" class="form-control"></div>
+                            <div class="col-12 col-md-4"><input type="number" id="SoLuong" name="SoLuong" placeholder="nhập số lượng" min="0" class="form-control"></div>
                             <div class="col-md-1">chiếc</div>
                             <div class="col-md-4 error">@Html.ValidationMessageFor(m => m.SoLuong, "", new { @class = "text-danger" })</div>
                         </div>
